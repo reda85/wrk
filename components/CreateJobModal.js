@@ -11,17 +11,17 @@ export default function CreateJobModal() {
   const [insertStages, { stagesdata, stagesloading, stageserror }] = useMutation(createStages);
 
   if (loading) return 'Submitting...';
-  if (error) return `Submission error! ${error.message}`;
+  
 
   const submit = (e) => {
     e.preventDefault();
-    console.log('newJob',newJob)
+  
     const newJob = {
       
      title : title.title,
 
     } ;
-console.log('newJob',newJob)
+
     insertJob({
       variables: {
        
@@ -106,7 +106,7 @@ console.log('newJob',newJob)
                 <form onSubmit={submit}>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
-                  Enter the name of the job position you're hiring for. Once created, you'll be taken to its setup screen where you can configure it.
+                  Enter the name of the job position you are hiring for. Once created, you will be taken to its setup screen where you can configure it.
                   </p>
                 </div>
 
