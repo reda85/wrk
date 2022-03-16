@@ -1,6 +1,6 @@
 
 
-export default function JobStatusBanner() {
+export default function JobStatusBanner(job) {
 
     return(
         <div className="h-8 py-2 text-white bg-gradient-to-r from-violet-500 to-fuchsia-500 flex justify-center align-middle ">

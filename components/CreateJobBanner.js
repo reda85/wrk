@@ -1,3 +1,5 @@
+import { Button } from "antd";
+import CreateJobModal from "./CreateJobModal";
 
 
 export default function CreateJobBanner() {
@@ -10,7 +12,7 @@ export default function CreateJobBanner() {
   <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
 </svg>
     </div>
-    <button className="flex p-2 w-64 bg-gray-200 font-semibold align-center justify-middle rounded-md">Create new job</button>
+    <CreateJobModal />
     </div>
     )
       }

@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import 'antd/dist/antd.css';
+import 'react-quill/dist/quill.snow.css'
 import Layout from '../components/layouts/Layout';
 import client from '../apollo-client';
 import { ApolloProvider } from '@apollo/client';
