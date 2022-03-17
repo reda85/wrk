@@ -8,16 +8,18 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useLazyQuery, useQuery } from "@apollo/client";
 import DetailsSideBar from "../../../../../../../components/detailsSideBar";
+import OverviewWindow from "../../../../../../../components/overview";
 //import DetailsSideBar from "../../../../../../../components/detailsSideBar";
 
 
 
 export default function Overview() {
     const router = useRouter();
-    const { jobId, id, applicantId } = router.query;
+    const { jobId, applicantId } = router.query;
     const [job, setJob] = useState([])
     const [ getJob, { data } ] = useLazyQuery(findJobsbypk)
-
+    
+    console.log("query overview", router.query)
    
   
   useEffect(() => {
@@ -47,6 +49,7 @@ export default function Overview() {
       <StagesSideBar  job={job} />
       <CandidatesSideBar  job={job}/>
       <DetailsSideBar />
+      <OverviewWindow  jobId={jobId} applicantId={applicantId} />
       </div>
       </div>
   );
