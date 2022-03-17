@@ -39,7 +39,7 @@ export default function OverviewWindow( props) {
         
         <div className=" mx-8 mt-6">
             {events.map(event => 
-            <div>
+            <div key={event.id}>
             <div className="flex  flex-row items-center">
             <div className="p-1 mr-2 bg-white rounded-sm border border-gray-200">
             <ArrowCircleDownIcon className="h-4 w-4 text-gray-500  " />
