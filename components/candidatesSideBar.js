@@ -25,6 +25,8 @@ export default function CandidatesSideBar( job) {
         variables: {
           stageId : id
         },
+        
+    fetchPolicy: "network-only",
       })
     }
       }, [id]);

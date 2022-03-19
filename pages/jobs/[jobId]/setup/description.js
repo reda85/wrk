@@ -1,18 +1,21 @@
-//import DetailsSideBar from "../../../../components/detailsSideBar";
-import CandidatesSideBar from "../../../../../../components/candidatesSideBar";
-import StagesSideBar from "../../../../../../components/stagesSidebar";
-import JobStatusBanner from "../../../../../../components/jobStatusBanner";
-import JobTitleBanner from "../../../../../../components/jobTitleBanner";
-import { findJobsbypk } from "../../../../../../queries/jobs/getJobsbypk";
+import JobStatusBanner from "../../../../components/jobStatusBanner";
+import JobTitleBanner from "../../../../components/jobTitleBanner";
+import { findJobsbypk } from "../../../../queries/jobs/getJobsbypk";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useLazyQuery, useQuery } from "@apollo/client";
+//import DetailsSideBar from "../../../../../../../components/detailsSideBar";
+import JobSetup from "../../../../components/jobSetup";
+import StagesSideBar from "../../../../components/stagesSidebar";
+import JobDetails from "../../../../components/jobdetails";
+import JobDescription from "../../../../components/JobDescription";
+//import DetailsSideBar from "../../../../../../../components/detailsSideBar";
 
 
 
-export default function Stage() {
+export default function Description() {
     const router = useRouter();
-    const { jobId, id } = router.query;
+    const { jobId, id, applicantId } = router.query;
     const [job, setJob] = useState([])
     const [ getJob, { data } ] = useLazyQuery(findJobsbypk)
 
@@ -25,8 +28,6 @@ export default function Stage() {
         variables: {
             jobId : jobId
         },
-        
-    fetchPolicy: "network-only",
       })
     }
   }, [,jobId]);
@@ -45,7 +46,8 @@ export default function Stage() {
       <JobTitleBanner  job={job} />
     <div className="flex flex-row">
       <StagesSideBar  job={job} />
-      <CandidatesSideBar  job={job}/>
+     <JobSetup setup='description' job={job} />
+    <JobDescription />
       </div>
       </div>
   );

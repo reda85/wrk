@@ -1,19 +1,27 @@
 import { LoadingOutlined } from "@ant-design/icons/lib/icons"
-import { useLazyQuery } from "@apollo/client"
+import { useLazyQuery, useMutation } from "@apollo/client"
 import { UserIcon } from "@heroicons/react/solid"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import { findCandidateByPk } from "../queries/candidates/getCandidatebypk"
+import { findCandidates } from "../queries/candidates/getCandidates"
+import { updateCandidateByPk } from "../queries/candidates/updateCandidate"
+import { findJobsbypk } from "../queries/jobs/getJobsbypk"
 
 
 export default function DetailsSideBar(job) {
 
+  console.log('jonb', job)
 const router = useRouter()
 const {jobId, id, applicantId} = router.query
+const currentStageId = job.job.stages.findIndex(stage => stage.id == id )
+console.log('currentStageId', currentStageId)
+const nextStage = job.job.stages[currentStageId + 1]
 
 const [mycandidate, setCandidate] = useState(null)
+const [updateCandidate, ] = useMutation(updateCandidateByPk);
 
-const [getCandidate,{ data, loading }] = useLazyQuery(findCandidateByPk)
+const [getCandidate, { data, loading, error }] = useLazyQuery(findCandidateByPk)
     useEffect(() => {
       if (applicantId) {
        
@@ -32,12 +40,45 @@ useEffect(() => {
       
   }
 }, [data]);
+
+const submit = (e) => {
+  e.preventDefault();
+
+
+
+  updateCandidate({
+    variables: {
+    id : applicantId, 
+stageId : nextStage.id
+    },
+    refetchQueries: [
+      {
+        query: findJobsbypk,
+        variables: {
+          id : job.job.id
+        },
+        
+          query: findCandidateByPk,
+          variables: {
+            id : applicantId
+          },
+          query: findCandidates,
+          variables: {
+            id : id
+          },
+      },
+    ],
+  }).then(router.push(`/jobs/${job.job.id}/stages/${id}/applicants`))
+  
+};
 if(mycandidate ) {  return(
-      
-        <div className="border-t-2 border-r-2 h-screen w-64 p-2">
+  <div className="flex flex-row">
+        <div className="flex flex-col p-2 flex-shrink w-60 border-r-2 border-t-2">
           {loading && <LoadingOutlined className='h-10 w-10 text-violet-500' />}
-           {!loading && <div>
-           <div className="text-xl font-bold py-2 px-3">{mycandidate.FirstName + ' ' + mycandidate.LastName}</div>
+           {!loading && 
+           <div className="">
+             
+           <div className=" relative overflow-auto text-xl font-bold py-2 px-3">{mycandidate.FirstName + ' ' + mycandidate.LastName}</div>
             <div className="text-neutral-500 px-3 ">Manually added</div>
             <div className="group flex flex-row cursor-pointer justify-between hover:bg-violet-50 p-2 rounded-md">
              <div className="flex flex-row justify-start">  
@@ -119,7 +160,13 @@ Private notes
 </svg>
 {mycandidate.location}
 </div>
+<button
+type="button"
+onClick={submit}
+className="inline-flex justify-center m-4 px-4 py-2 w-40 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+> Move to {nextStage.name}</button>
 </div>}
+        </div>
         </div>
        
     )

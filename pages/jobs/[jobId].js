@@ -24,6 +24,7 @@ export default function Job() {
         variables: {
             jobId : jobId
         },
+        fetchPolicy: "network-only",
       })
     }
     

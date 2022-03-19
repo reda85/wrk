@@ -12,7 +12,7 @@ import JobDetails from "../../../../components/jobdetails";
 
 
 
-export default function Overview() {
+export default function Details() {
     const router = useRouter();
     const { jobId, id, applicantId } = router.query;
     const [job, setJob] = useState([])
@@ -45,8 +45,8 @@ export default function Overview() {
       <JobTitleBanner  job={job} />
     <div className="flex flex-row">
       <StagesSideBar  job={job} />
-     <JobSetup />
-    <JobDetails />
+     <JobSetup setup='details' job={job} />
+    <JobDetails  />
       </div>
       </div>
   );

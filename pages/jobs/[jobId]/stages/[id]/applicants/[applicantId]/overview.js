@@ -16,7 +16,7 @@ import OverviewWindow from "../../../../../../../components/overview";
 export default function Overview() {
     const router = useRouter();
     const { jobId, applicantId } = router.query;
-    const [job, setJob] = useState([])
+    const [job, setJob] = useState(null)
     const [ getJob, { data } ] = useLazyQuery(findJobsbypk)
     
     console.log("query overview", router.query)
@@ -41,16 +41,17 @@ export default function Overview() {
       }, [data]);
       console.log('foooking job', job)
 
-  return (
+  if(job) {return (
   <div>
       <JobStatusBanner job={job}/>
       <JobTitleBanner  job={job} />
     <div className="flex flex-row">
       <StagesSideBar  job={job} />
       <CandidatesSideBar  job={job}/>
-      <DetailsSideBar />
+      <DetailsSideBar job={job} />
       <OverviewWindow  jobId={jobId} applicantId={applicantId} />
       </div>
       </div>
-  );
+  );}
+  else return 'loading ...'
 }
