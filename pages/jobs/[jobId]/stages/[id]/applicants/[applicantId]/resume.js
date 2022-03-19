@@ -41,13 +41,7 @@ export default function Resume() {
 
   return (
   <div>
-      <JobStatusBanner job={job}/>
-      <JobTitleBanner  job={job} />
-    <div className="flex flex-row">
-      <StagesSideBar  job={job} />
-      <CandidatesSideBar  job={job}/>
-      <DetailsSideBar />
-      </div>
+     
       </div>
   );
 }
