@@ -33,15 +33,15 @@ export default function OverviewWindow( props) {
       console.log('foooking events', events)
 
     return(
-        <div className="border-top-1 border w-screen relative ">
-            <div className="abolute h-16 text-violet-800 font-bold p-4 text-xl border-b-2">Overview</div>
+        <div className="divide-x shadow-inner w-screen relative ">
+            <div className="abolute h-16 text-violet-800 font-bold p-4 text-xl divide-x">Overview</div>
    
         
         <div className="flex flex-grow flex-col mx-8 mt-6">
             {events.map(event => 
             <div key={event.id}>
             <div className="flex  flex-row items-center">
-            <div className="p-1 mr-2 bg-white rounded-sm border border-gray-200">
+            <div className="p-1 mr-2 bg-white rounded-sm ">
             <ArrowCircleDownIcon className="h-4 w-4 text-gray-500  " />
             </div>
             <div className="text-xs">{event.event}</div>

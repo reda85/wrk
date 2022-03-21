@@ -31,7 +31,7 @@ useEffect(() => {
   }
     return(
         <div className="flex flex-row">
-        <div className="flex flex-col flex-shrink w-40 p-2 border-r-2 border-t-2 h-screen ">
+        <div className="flex flex-col flex-shrink w-40 p-2 divide-x shadow-inner h-screen ">
         
             {stages && stages.map(stage => {
                if( (id != stage.id)) { return <button className="flex flex-row p-2 justify-between hover:bg-violet-50 cursor-pointer rounded-md" onClick={() => selectStage(stage, job)}>

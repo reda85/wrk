@@ -40,14 +40,16 @@ export default function Details() {
       console.log('foooking job', job)
 
   return (
-  <div>
+    <div>
+  {job.id  && <div>
       <JobStatusBanner job={job}/>
       <JobTitleBanner  job={job} />
     <div className="flex flex-row">
       <StagesSideBar  job={job} />
      <JobSetup setup='details' job={job} />
-    <JobDetails  />
+    <JobDetails job={job}  />
       </div>
+      </div>}
       </div>
   );
 }

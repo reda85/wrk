@@ -68,12 +68,13 @@ stageId : nextStage.id
           },
       },
     ],
-  }).then(router.push(`/jobs/${job.job.id}/stages/${id}/applicants`))
+    onCompleted : (data) => {router.push(`/jobs/${job.job.id}/stages/${id}/applicants`)} ,
+  })
   
 };
 if(mycandidate ) {  return(
   <div className="flex flex-row">
-        <div className="flex flex-col p-2 flex-shrink w-60 border-r-2 border-t-2">
+        <div className="flex flex-col p-2 flex-shrink w-60 divide-x shadow-inner">
           {loading && <LoadingOutlined className='h-10 w-10 text-violet-500' />}
            {!loading && 
            <div className="">
@@ -160,11 +161,11 @@ Private notes
 </svg>
 {mycandidate.location}
 </div>
-<button
+{nextStage && <button
 type="button"
 onClick={submit}
 className="inline-flex justify-center m-4 px-4 py-2 w-40 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-> Move to {nextStage.name}</button>
+> Move to {nextStage.name}</button>}
 </div>}
         </div>
         </div>
