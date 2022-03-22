@@ -6,7 +6,7 @@ import { findEvents } from "../queries/events/getEvents";
 export default function OverviewWindow( props) {
 
     const [events, setEvents] = useState([])
-    const [ getEvents, { data } ] = useLazyQuery(findEvents)
+    const [ getEvents, { data, loading } ] = useLazyQuery(findEvents)
     const {jobId, applicantId} = props
 
    console.log("applicantId", applicantId )
@@ -33,8 +33,9 @@ export default function OverviewWindow( props) {
       console.log('foooking events', events)
 
     return(
-        <div className="divide-x shadow-inner w-screen relative ">
-            <div className="abolute h-16 text-violet-800 font-bold p-4 text-xl divide-x">Overview</div>
+        <div className=" shadow-inner w-screen relative ">
+          {!loading && <div>
+            <div className="abolute h-16 text-violet-800 font-bold p-4 text-xl ">Overview</div>
    
         
         <div className="flex flex-grow flex-col mx-8 mt-6">
@@ -54,7 +55,9 @@ export default function OverviewWindow( props) {
 <button className="mx-4 p-2 font-semibold bg-gray-200 rounded-md"> Add a comment </button>
 <button className="mx-4 p-2 font-semibold bg-gray-200 rounded-md"> Start a review </button>
         </div>
-        
+        </div>
+}
+{loading && <p>Loading ...</p>}
             
         </div>
     )

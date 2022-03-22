@@ -5,7 +5,7 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import { findCandidateByPk } from "../queries/candidates/getCandidatebypk"
 import { findCandidates } from "../queries/candidates/getCandidates"
-import { updateCandidateByPk } from "../queries/candidates/updateCandidate"
+import { moveCandidateByPk, updateCandidateByPk } from "../queries/candidates/updateCandidate"
 import { findJobsbypk } from "../queries/jobs/getJobsbypk"
 
 
@@ -19,7 +19,7 @@ console.log('currentStageId', currentStageId)
 const nextStage = job.job.stages[currentStageId + 1]
 
 const [mycandidate, setCandidate] = useState(null)
-const [updateCandidate, ] = useMutation(updateCandidateByPk);
+const [updateCandidate, ] = useMutation(moveCandidateByPk);
 
 const [getCandidate, { data, loading, error }] = useLazyQuery(findCandidateByPk)
     useEffect(() => {
@@ -49,7 +49,10 @@ const submit = (e) => {
   updateCandidate({
     variables: {
     id : applicantId, 
-stageId : nextStage.id
+stageId : nextStage.id,
+type:'move',
+jobId: jobId,
+event : 'Marouane Reda moved candidate to ' + nextStage.name
     },
     refetchQueries: [
       {
@@ -81,17 +84,36 @@ if(mycandidate ) {  return(
              
            <div className=" relative overflow-auto text-xl font-bold py-2 px-3">{mycandidate.FirstName + ' ' + mycandidate.LastName}</div>
             <div className="text-neutral-500 px-3 ">Manually added</div>
-            <div className="group flex flex-row cursor-pointer justify-between hover:bg-violet-50 p-2 rounded-md">
+            
+            {job.type == 'overview' && <div className="group flex flex-row cursor-pointer justify-between bg-gray-100 p-2 rounded-md">
              <div className="flex flex-row justify-start">  
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
 </svg>
 Overview
 </div> 
+
+<svg xmlns="http://www.w3.org/2000/svg" className="text-black group-hover:stroke-black h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+</svg>               
+            </div>}
+
+
+
+            {job.type != 'overview' && <div className="group flex flex-row cursor-pointer justify-between hover:bg-violet-50 p-2 rounded-md">
+             <div className="flex flex-row justify-start">  
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+</svg>
+Overview
+</div> 
+
 <svg xmlns="http://www.w3.org/2000/svg" className="text-white group-hover:stroke-black h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
 </svg>               
-            </div>
+            </div>}
+
+
             <div className="group flex flex-row cursor-pointer justify-between hover:bg-violet-50 p-2 rounded-md" onClick={() => router.push(`/jobs/${jobId}/stages/${id}/applicants/${applicantId}/resume`)}>
             <div className="flex flex-row justify-start"> 
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

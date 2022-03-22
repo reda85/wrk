@@ -48,7 +48,7 @@ export default function Overview() {
     <div className="flex flex-row">
       <StagesSideBar  job={job} />
       <CandidatesSideBar  job={job}/>
-      <DetailsSideBar job={job} />
+      <DetailsSideBar job={job} type='overview' />
       <OverviewWindow  jobId={jobId} applicantId={applicantId} />
       </div>
       </div>
