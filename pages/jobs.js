@@ -23,7 +23,8 @@ export default function Jobs() {
       
       <CreateJobBanner />
     <div className="flex flex-col items-center ">
-        <div className="w-3/4">You have {jobs.length} assignements</div>
+       {jobs && !loading &&  <div className="w-3/4">You have {jobs.length} assignements</div> }
+       {loading && <p>Loading ...</p>}
       {jobs.map(job => {
           return(
               <div key={job.id} className="flex p-4 m-2 flex-row w-3/4 justify-between rounded-md  border-gray-200 border cursor-pointer" onClick={() => router.push(`/jobs/${job.id}/setup/details`)}>

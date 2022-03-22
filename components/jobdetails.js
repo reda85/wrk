@@ -37,7 +37,7 @@ console.log('fing title', title)
     
     return(
         <form onSubmit={submit}>
-        <div className="flex p-4 flex-col w-1/2 shadow-inner h-screen ">
+        <div className="flex p-4 flex-col  shadow-inner h-screen ">
             
             <span className="text-2xl font-bold">Job details</span>
             <p className="text-gray-5OO"> Here is where you can edit the general information for this job. This includes things such as the job-type, hiring location, and if it is remote-friendly.</p>

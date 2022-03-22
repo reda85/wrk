@@ -8,6 +8,7 @@ import { useLazyQuery, useQuery } from "@apollo/client";
 import JobSetup from "../../../../components/jobSetup";
 import StagesSideBar from "../../../../components/stagesSidebar";
 import JobDetails from "../../../../components/jobdetails";
+import JobExplain from "../../../../components/jobExplain";
 //import DetailsSideBar from "../../../../../../../components/detailsSideBar";
 
 
@@ -48,6 +49,7 @@ export default function Details() {
       <StagesSideBar  job={job} />
      <JobSetup setup='details' job={job} />
     <JobDetails job={job}  />
+    <JobExplain type='details' />
       </div>
       </div>}
       </div>
