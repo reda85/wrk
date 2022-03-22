@@ -51,9 +51,10 @@ export default function JobDescription(props) {
     const {job} = props
     const router = useRouter()
     console.log('job indescription', props)
+    const [value, setValue] = useState(job.description);
     const [title, setTitle] = useState(job.title)
 const [category, setCategory] = useState(job.category)
-const [description, setDescription] = useState(job.description)
+
 const [type, setType] = useState(job.type)
 const [country, setCountry] = useState(job.country)
 const [location, setLocation] = useState(job.location)
@@ -83,10 +84,10 @@ const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
         })
           
       };
-    const [value, setValue] = job ? useState(job.description) : '';
+    
     return(
         <div>
-    <div className='flex  flex-col w-1/2 divide-x-2 shadow-inner h-screen'>
+    <div className='flex  flex-col w-1/2  shadow-inner h-screen'>
         <QuillNoSSRWrapper modules={modules} value={value || ''} onChange={setValue} formats={formats} theme="snow" />
         
         </div>

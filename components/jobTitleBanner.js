@@ -6,7 +6,12 @@ import { useEffect, useState } from "react";
 
 export default function JobTitleBanner(job) {
 console.log('haaa job', job)
-let [isOpen, setIsOpen] = useState(true)
+let [isOpen, setIsOpen] = useState(false)
+let [firstName, setFirstName] = useState(null)
+let [lastName, setLastName] = useState(null)
+let [email, setEmail] = useState(null)
+let [phone, setPhone] = useState(null)
+let [location, setLocation] = useState(null)
 
   function closeModal() {
     setIsOpen(false)
@@ -77,6 +82,7 @@ useEffect(() => {
                 >
                   Add new candidate
                 </Dialog.Title>
+                <form type='submit'>
                 <div className='flex flex-col'>
                 <span className="text-xl my-4 font-bold">Basic information</span>
             <div className="flex flex-row">
@@ -115,12 +121,13 @@ useEffect(() => {
                   <button
                     type="button"
                     className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                    
+                   
                   >
                     Create candidate
                   </button>
                 </div>
               </div>
+              </form>
               </div>
             </Transition.Child>
           </div>

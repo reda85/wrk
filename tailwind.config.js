@@ -6,7 +6,7 @@ module.exports = {
   ],
   theme: {
     extend: {fontFamily: {
-      sans: ['Fredoka', ...defaultTheme.fontFamily.sans],
+      "Lato": ['Lato', ...defaultTheme.fontFamily.sans],
     },},
   },
   plugins: [],

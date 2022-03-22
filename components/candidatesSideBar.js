@@ -58,7 +58,7 @@ export default function CandidatesSideBar( job) {
     
      
     return(
-        <div className="flex flex-row">
+        <div className="flex flex-row ">
         <div className="flex flex-col p-2 flex-shrink w-60 shadow-inner divide-x-2 divide-y-2">
         {loading && <LoadingOutlined className='h-10 w-10 text-violet-500' />}
          {!loading && <div>   <div className="flex flex-row p-3 justify-between">
@@ -70,7 +70,7 @@ export default function CandidatesSideBar( job) {
             {mycandidates.length == 0 && <NoCandidates />}
             {mycandidates && mycandidates.length >0 && mycandidates.map(candidate => {
               console.log('ghghgh')
-              if(selectedCandidate && (selectedCandidate.id !== candidate.id)) { return <div className=" group flex flex-row cursor-pointer justify-between hover:bg-violet-50 p-2 rounded-md" onClick={() => selectCandidate(candidate)}>
+              if((applicantId !== candidate.id)) { return <div className=" group flex flex-row cursor-pointer justify-between hover:bg-violet-50 p-2 rounded-md" onClick={() => selectCandidate(candidate)}>
                     <div className="flex flex-row justify-start">
                    <div> <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -82,14 +82,14 @@ export default function CandidatesSideBar( job) {
 </svg>
                    </div>}
                else {
-                if(selectedCandidate && (selectedCandidate.id === candidate.id)) {  return <div className=" group flex flex-row cursor-pointer justify-between bg-gray-100 p-2 rounded-md" onClick={() => selectCandidate(candidate)}>
+                if((applicantId === candidate.id)) {  return <div className=" group flex flex-row cursor-pointer justify-between bg-gray-100 p-2 rounded-md" onClick={() => selectCandidate(candidate)}>
                 <div className="flex flex-row justify-start">
                <div> <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
 <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
 </svg> </div>
                <div> {candidate.FirstName} </div> <span>&nbsp;</span> <div> {candidate.LastName}</div>
                </div>
-               <svg xmlns="http://www.w3.org/2000/svg" className="text-white group-hover:stroke-black h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+               <svg xmlns="http://www.w3.org/2000/svg" className="text-black group-hover:stroke-black h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
 </svg>
                </div>}  

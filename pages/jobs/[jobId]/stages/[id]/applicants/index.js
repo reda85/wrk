@@ -35,8 +35,13 @@ export default function Stage() {
         if (data) {
             console.log('data', data)
             setJob(data.jobs_by_pk);
-        }
-      }, [data]);
+            let stage1 = data.jobs_by_pk.stages.filter(stage => stage.id == id)[0]
+           console.log('stage1',stage1)
+            if(stage1.candidates.length > 0){
+            router.push(`/jobs/${data.jobs_by_pk.id}/stages/${id}/applicants/${stage1.candidates[0].id}/overview`)
+            }
+          }
+      }, [data,id]);
       console.log('foooking job', job)
 
   return (

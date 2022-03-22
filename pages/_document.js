@@ -9,11 +9,11 @@ class MyDocument extends Document {
         <Html>
           <Head>
             <link
-              href="https://fonts.googleapis.com/css2?family=Fredoka"
+              href="https://fonts.googleapis.com/css2?family=Lato"
               rel="stylesheet"
             />
           </Head>
-          <body>
+          <body className='font-Lato'>
             <Main />
             <NextScript />
           </body>
