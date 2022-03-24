@@ -87,8 +87,8 @@ const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
     
     return(
         <div>
-    <div className='flex  flex-col  shadow-inner h-screen'>
-        <QuillNoSSRWrapper modules={modules} value={value || ''} onChange={setValue} formats={formats} theme="snow" />
+    <div className='flex h-3/4  flex-col  shadow-inner '>
+        <QuillNoSSRWrapper className='h-full border-2' modules={modules} value={value || ''} onChange={setValue} formats={formats} theme="snow" />
         
         </div>
         <button

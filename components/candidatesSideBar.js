@@ -14,7 +14,7 @@ export default function CandidatesSideBar( job) {
   const router = useRouter()
   const {id, applicantId} = router.query;
   console.log("query", router.query)
-    const [mycandidates, setCandidates] = useState([])
+    const [mycandidates, setCandidates] = useState(null)
     const [stages, setStages] = useState([])
     const [selectedCandidate, setSelectedCandidate] = useState(null)
     const [getCandidates,{ data, loading }] = useLazyQuery(findCandidates)
@@ -58,7 +58,7 @@ export default function CandidatesSideBar( job) {
     
      
     return(
-        <div className="flex flex-row ">
+        <div className="flex font-bold flex-row ">
         <div className="flex flex-col p-2 flex-shrink w-60 shadow-inner divide-x-2 divide-y-2">
         {loading && <LoadingOutlined className='h-10 w-10 text-violet-500' />}
          {!loading && <div>   <div className="flex flex-row p-3 justify-between">
@@ -67,7 +67,7 @@ export default function CandidatesSideBar( job) {
   <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
 </svg>
             </div>
-            {mycandidates.length == 0 && <NoCandidates />}
+            {mycandidates && mycandidates.length == 0 && <NoCandidates />}
             {mycandidates && mycandidates.length >0 && mycandidates.map(candidate => {
               console.log('ghghgh')
               if((applicantId !== candidate.id)) { return <div className=" group flex flex-row cursor-pointer justify-between hover:bg-violet-50 p-2 rounded-md" onClick={() => selectCandidate(candidate)}>

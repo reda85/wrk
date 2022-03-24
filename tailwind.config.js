@@ -6,7 +6,7 @@ module.exports = {
   ],
   theme: {
     extend: {fontFamily: {
-      "Lato": ['Lato', ...defaultTheme.fontFamily.sans],
+      "Poppins": ['Poppins', ...defaultTheme.fontFamily.sans],
     },},
   },
   plugins: [],

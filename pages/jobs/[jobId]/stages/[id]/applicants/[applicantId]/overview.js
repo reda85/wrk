@@ -42,14 +42,14 @@ export default function Overview() {
       console.log('foooking job', job)
 
   if(job) {return (
-  <div>
+  <div className=" display-block overflow-hidden">
       <JobStatusBanner job={job}/>
       <JobTitleBanner  job={job} />
     <div className="flex flex-row">
       <StagesSideBar  job={job} />
       <CandidatesSideBar  job={job}/>
       <DetailsSideBar job={job} type='overview' />
-      <OverviewWindow  jobId={jobId} applicantId={applicantId} />
+      <OverviewWindow  job={job} jobId={jobId} applicantId={applicantId} />
       </div>
       </div>
   );}

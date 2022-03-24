@@ -76,13 +76,13 @@ event : 'Marouane Reda moved candidate to ' + nextStage.name
   
 };
 if(mycandidate ) {  return(
-  <div className="flex flex-row">
-        <div className="flex flex-col p-2 flex-shrink w-60 divide-x shadow-inner">
+  <div className="flex font-bold flex-row">
+        <div className="flex flex-col p-2 flex-shrink w-60 divide-x overflow-y-auto max-h-screen shadow-inner">
           {loading && <LoadingOutlined className='h-10 w-10 text-violet-500' />}
            {!loading && 
            <div className="">
              
-           <div className=" relative overflow-auto text-xl font-bold py-2 px-3">{mycandidate.FirstName + ' ' + mycandidate.LastName}</div>
+           <div className=" relative overflow-auto text-xl font-extrabold py-2 px-3">{mycandidate.FirstName + ' ' + mycandidate.LastName}</div>
             <div className="text-neutral-500 px-3 ">Manually added</div>
             
             {job.type == 'overview' && <div className="group flex flex-row cursor-pointer justify-between bg-gray-100 p-2 rounded-md">

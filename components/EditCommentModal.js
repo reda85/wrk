@@ -5,12 +5,12 @@ import createComment from '../queries/comments/createComment';
 import createJob from '../queries/jobs/createJob';
 import createStages from '../queries/jobs/createStages';
 
-export default function CreateCommentModal(props) {
+export default function EditCommentModal(props) {
   let [isOpen, setIsOpen] = useState(false)
-  const [comment, setComment] = useState('')
+  const [comment, setComment] = useState(props.comment.comment)
   const [insertComment, { data, loading, error }] = useMutation(createComment);
  
-
+console.log('prooooops', props)
   if (loading) return 'Submitting...';
   
 
@@ -50,7 +50,7 @@ export default function CreateCommentModal(props) {
           onClick={openModal}
           
         >
-          Add a comment
+          Edit
         </button>
       </div>
 
@@ -94,13 +94,11 @@ export default function CreateCommentModal(props) {
                   as="h3"
                   className="text-lg font-medium leading-6 text-gray-900"
                 >
-                  Add a new comment
+                 Edit comment
                 </Dialog.Title>
                 <form onSubmit={submit}>
                 <div className="mt-2">
-                  <p className="text-sm text-gray-500">
-                  xx
-                  </p>
+                 
                 </div>
 
                 <div>
@@ -109,6 +107,7 @@ export default function CreateCommentModal(props) {
 
                 <div>
                     <input
+                    defaultValue={comment}
                      onChange={(e) =>
                         setComment({ comment: e.currentTarget.value })
                       }></input>
@@ -116,11 +115,10 @@ export default function CreateCommentModal(props) {
 
                 <div className="mt-4">
                   <button
-                    type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    
                     onClick={submit}
                   >
-                    Create comment
+                    Edit
                   </button>
                 </div>
                 <div className="mt-4">

@@ -10,5 +10,12 @@ export const findEvents = gql`
         jobId
         type
       }
+      comments(where: {applicantId: {_eq: $applicantId}, jobId: {_eq: $jobId}}) {
+        applicantId
+        comment
+        id
+        jobId
+      }
+      
     }
 `
