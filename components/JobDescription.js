@@ -87,16 +87,21 @@ const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
     
     return(
         <div>
+            <form type='submit' onSubmit={submit}>
+            <div>
     <div className='flex h-3/4  flex-col  shadow-inner '>
         <QuillNoSSRWrapper className='h-full border-2' modules={modules} value={value || ''} onChange={setValue} formats={formats} theme="snow" />
         
         </div>
-        <button
-        type="button"
-        className="inline-flex justify-center m-4 px-4 py-2 w-40 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-        onClick={submit}
-      >
-        Save changes
-      </button>
-      </div>)
+       
+      </div>
+       <button
+       type="button"
+       className="inline-flex justify-center m-4 px-4 py-2 w-40 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+       onClick={submit}
+     >
+       Save changes
+     </button>
+     </form>
+     </div>)
 }

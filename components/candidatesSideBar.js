@@ -58,11 +58,11 @@ export default function CandidatesSideBar( job) {
     
      
     return(
-        <div className="flex font-bold flex-row ">
+        <div className="flex  flex-row ">
         <div className="flex flex-col p-2 flex-shrink w-60 shadow-inner divide-x-2 divide-y-2">
         {loading && <LoadingOutlined className='h-10 w-10 text-violet-500' />}
          {!loading && <div>   <div className="flex flex-row p-3 justify-between">
-            {stages && stages.length > 0 && <span className="font-bold text-sm">{stages.filter(stage => stage.id == id)[0].name}</span> }  
+            {stages && stages.length > 0 && <span className="font-extrabold ">{stages.filter(stage => stage.id == id)[0].name}</span> }  
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
 </svg>
@@ -82,20 +82,20 @@ export default function CandidatesSideBar( job) {
 </svg>
                    </div>}
                else {
-                if((applicantId === candidate.id)) {  return <div className=" group flex flex-row cursor-pointer justify-between bg-gray-100 p-2 rounded-md" onClick={() => selectCandidate(candidate)}>
-                <div className="flex flex-row justify-start">
+                if((applicantId === candidate.id)) {  return <div className=" group flex flex-row cursor-pointer items-end justify-between bg-violet-500 text-white p-2 rounded-md" onClick={() => selectCandidate(candidate)}>
+                <div className="flex  items-end flex-row justify-start">
                <div> <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
 <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
 </svg> </div>
                <div> {candidate.FirstName} </div> <span>&nbsp;</span> <div> {candidate.LastName}</div>
                </div>
-               <svg xmlns="http://www.w3.org/2000/svg" className="text-black group-hover:stroke-black h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+               <svg xmlns="http://www.w3.org/2000/svg" className="  h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
 </svg>
                </div>}  
                 
-                else{ return <div className=" group flex flex-row cursor-pointer justify-between hover:bg-violet-50 p-2 rounded-md" onClick={() => selectCandidate(candidate)}>
-                <div className="flex flex-row justify-start">
+                else{ return <div className=" group flex flex-row cursor-pointer items-center justify-between hover:bg-violet-50 p-2 rounded-md" onClick={() => selectCandidate(candidate)}>
+                <div className="flex items-center flex-row justify-start">
                <div> <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
 <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
 </svg> </div>

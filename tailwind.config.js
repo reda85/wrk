@@ -6,7 +6,7 @@ module.exports = {
   ],
   theme: {
     extend: {fontFamily: {
-      "Poppins": ['Poppins', ...defaultTheme.fontFamily.sans],
+      "Cabin": ['Cabin', ...defaultTheme.fontFamily.sans],
     },},
   },
   plugins: [],

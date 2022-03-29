@@ -1,4 +1,4 @@
-import { CogIcon } from "@heroicons/react/outline";
+import { ClipboardCheckIcon, CogIcon } from "@heroicons/react/outline";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -31,38 +31,41 @@ useEffect(() => {
   }
     return(
         <div className="flex flex-row">
-        <div className="flex flex-col flex-shrink w-40 p-2 shadow-inner  ">
+        <div className="flex flex-col flex-shrink w-48 p-2 shadow-inner  ">
         
             {stages && stages.map(stage => {
                if( (id != stage.id)) { return <button className="flex flex-row p-2 justify-between hover:bg-violet-50 cursor-pointer rounded-md" onClick={() => selectStage(stage, job)}>
                     <div className="flex flex-row justify-start">
-                        {stage.name == "Réception" ? <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        {stage.name == "Réception" && <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20" />
-</svg> :
-<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+</svg> }
+{stage.name == "Recrutement" && <ClipboardCheckIcon className="h-6 w-6 mr-2"/>}
+{stage.name != "Recrutement" && stage.name != "Réception"  && <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
 </svg>}
                         {stage.name}</div>
                         {stage.candidates.length}</button>}
                 else {
-                    if((id == stage.id)) {return <div className="flex flex-row p-2 justify-between bg-gray-100 cursor-pointer rounded-md" onClick={() => selectStage(stage, job)}>
-                    <div className="flex flex-row justify-start">
-                        {stage.name == "Réception" ? <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    if((id == stage.id)) {return <div className="flex flex-row p-2 justify-between items-center bg-violet-500 text-white cursor-pointer rounded-md" onClick={() => selectStage(stage, job)}>
+                    <div className="flex flex-row items-center justify-start">
+                    {stage.name == "Réception" && <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20" />
-</svg> :
-<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+</svg> }
+{stage.name == "Recrutement" && <ClipboardCheckIcon className="h-6 w-6 mr-2"/>}
+{stage.name != "Recrutement" && stage.name != "Réception"  && <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
 </svg>}
                         {stage.name}</div>
                         {stage.candidates.length}</div>
                 }
                 else{
-                    return <div className="flex flex-row p-2 justify-between cursor-pointer rounded-md" onClick={() => selectStage(stage, job)}>
-                    <div className="flex flex-row justify-start">
-                        {stage.name == "Réception" ? <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    return <div className="flex flex-row p-2 justify-between items-center self-center cursor-pointer rounded-md" onClick={() => selectStage(stage, job)}>
+                    <div className="flex flex-row items-center justify-start">
+                    {stage.name == "Réception" && <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20" />
-</svg> :
-<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+</svg> }
+{stage.name == "Recrutement" && <ClipboardCheckIcon className="h-6 w-6 mr-2"/>}
+{stage.name != "Recrutement" && stage.name != "Réception"  && <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
 </svg>}
                         {stage.name}</div>
@@ -70,10 +73,13 @@ useEffect(() => {
                 }
             }
             })}
-            <div className="flex mt-4 p-2 flex-row justify-start cursor-pointer rounded-md" onClick={() => router.push(`/jobs/${job.job.id}/setup/details`)}>
-                <CogIcon className="h-5 w-5" />
+            {job.setup ? <div className="flex mt-4 p-2 flex-row justify-start bg-violet-500 text-white cursor-pointer rounded-md" onClick={() => router.push(`/jobs/${job.job.id}/setup/details`)}>
+                <CogIcon className="stroke-white h-5 w-5 mx-2" />
                 Job setup
-                </div>
+                </div> :                 <div className="flex mt-4 p-2 flex-row justify-start cursor-pointer rounded-md" onClick={() => router.push(`/jobs/${job.job.id}/setup/details`)}>
+                <CogIcon className="h-5 w-5 mx-2" />
+                Job setup
+                </div> }
         </div>
        
         </div>

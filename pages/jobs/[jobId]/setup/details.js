@@ -46,7 +46,7 @@ export default function Details() {
       <JobStatusBanner job={job}/>
       <JobTitleBanner  job={job} />
     <div className="flex flex-row">
-      <StagesSideBar  job={job} />
+      <StagesSideBar setup='details'  job={job} />
      <JobSetup setup='details' job={job} />
     <JobDetails job={job}  />
     <JobExplain type='details' />

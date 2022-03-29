@@ -2,13 +2,14 @@ import { useMutation } from '@apollo/client';
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import createComment from '../queries/comments/createComment';
+import { updateComment } from '../queries/comments/updateComment';
 import createJob from '../queries/jobs/createJob';
 import createStages from '../queries/jobs/createStages';
 
 export default function EditCommentModal(props) {
   let [isOpen, setIsOpen] = useState(false)
   const [comment, setComment] = useState(props.comment.comment)
-  const [insertComment, { data, loading, error }] = useMutation(createComment);
+  const [editingComment, { data, loading, error }] = useMutation(updateComment);
  
 console.log('prooooops', props)
   if (loading) return 'Submitting...';
@@ -17,21 +18,16 @@ console.log('prooooops', props)
   const submit = (e) => {
     e.preventDefault();
   
-    const newComment = {
-      
-     comment : comment.comment,
-     jobId : props.jobId,
-     applicantId : props.applicantId
+    
 
-    } ;
-
-    insertComment({
+    editingComment({
       variables: {
        
-        comment: newComment,
+        comment : comment.comment,
+   id : props.comment.id
       },
     })
-      
+      closeModal()
   };
 
   function closeModal() {
@@ -46,6 +42,7 @@ console.log('prooooops', props)
     <>
       <div >
         <button
+        className="mx-2"
           type="button"
           onClick={openModal}
           
@@ -92,13 +89,13 @@ console.log('prooooops', props)
               <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
                 <Dialog.Title
                   as="h3"
-                  className="text-lg font-medium leading-6 text-gray-900"
+                  className="text-xl font-medium leading-6 text-violet-900"
                 >
-                 Edit comment
+                  Edit comment
                 </Dialog.Title>
                 <form onSubmit={submit}>
                 <div className="mt-2">
-                 
+                
                 </div>
 
                 <div>
@@ -106,29 +103,32 @@ console.log('prooooops', props)
                 </div>
 
                 <div>
-                    <input
-                    defaultValue={comment}
+                    <textarea className='border-2 p-2 border-gray-900 rounded-md' rows={10} cols={50}
+                     defaultValue={comment}
                      onChange={(e) =>
                         setComment({ comment: e.currentTarget.value })
-                      }></input>
+                      }></textarea>
                 </div>
 
-                <div className="mt-4">
-                  <button
-                    
-                    onClick={submit}
-                  >
-                    Edit
-                  </button>
-                </div>
-                <div className="mt-4">
+                <div className="flex flex-row mt-4">
+                  <div className='mr-4'> 
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-violet-600 border border-transparent rounded-md hover:bg-violet-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    onClick={submit}
+                  >
+                    Edit comment
+                  </button>
+                </div>
+                <div >
+                  <button
+                    type="button"
+                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-violet-600 bg-gray-200 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                     onClick={closeModal}
                   >
                     Cancel
                   </button>
+                  </div>
                 </div>
                 </form>
               </div>

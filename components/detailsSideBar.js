@@ -82,10 +82,10 @@ if(mycandidate ) {  return(
            {!loading && 
            <div className="">
              
-           <div className=" relative overflow-auto text-xl font-extrabold py-2 px-3">{mycandidate.FirstName + ' ' + mycandidate.LastName}</div>
-            <div className="text-neutral-500 px-3 ">Manually added</div>
+           <div className=" relative overflow-auto text-xl font-extrabold py-2 px-3 border-violet-100 bg-violet-50 rounded-md border-2">{mycandidate.FirstName + ' ' + mycandidate.LastName}</div>
+            <div className="text-neutral-500 px-3 mt-1 mb-7 text-xs  ">Manually added</div>
             
-            {job.type == 'overview' && <div className="group flex flex-row cursor-pointer justify-between bg-gray-100 p-2 rounded-md">
+            {job.type == 'overview' && <div className="group flex flex-row cursor-pointer justify-between bg-violet-500 text-white p-2 rounded-md">
              <div className="flex flex-row justify-start">  
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
@@ -93,7 +93,7 @@ if(mycandidate ) {  return(
 Overview
 </div> 
 
-<svg xmlns="http://www.w3.org/2000/svg" className="text-black group-hover:stroke-black h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+<svg xmlns="http://www.w3.org/2000/svg" className="  h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
 </svg>               
             </div>}
