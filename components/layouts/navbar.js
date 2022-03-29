@@ -18,7 +18,7 @@ import { Dialog } from '@headlessui/react'
     }
 
 return(
-    <div className="px-4 py-1 mx-auto border-b  border-violet-200">
+    <div className="px-4 py-1 mx-auto border-b  border-gray-200">
     <div className="relative flex items-center justify-between h-12 gap-2 ">
       <div className="flex items-center lg:px-0 w-full ">
         <div className="flex items-center justify-between w-full">

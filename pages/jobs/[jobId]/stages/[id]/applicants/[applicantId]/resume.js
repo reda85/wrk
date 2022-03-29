@@ -12,7 +12,7 @@ import { ResumeViewer } from "../../../../../../../components/resume";
 //import DocViewer, { DocViewerRenderers } from "react-doc-viewer";
 import dynamic from "next/dynamic";
 
-const DocViewer = dynamic(import('react-doc-viewer'), {	
+const FileViewer = dynamic(import('react-file-viewer'), {	
 	ssr: false,
 	loading: () => <p>Loading ...</p>,
 	})
@@ -46,9 +46,8 @@ useEffect(() => {
     }, [data]);
     console.log('foooking job', job)
 
-      const docs = [
-        { uri: "https://firebasestorage.googleapis.com/v0/b/kmx1-16598.appspot.com/o/blog%2FAIAIN%2BOUMAIMA.pdf"}
-      ]
+      const path='https://www.emploiquebec.gouv.qc.ca/fileadmin/fichiers/doc/Citoyens/Modele-CV-competences.docx'
+      const src= "https://docs.google.com/viewerng/viewer?url=" + path
       if(job) {return (
         <div className=" display-block overflow-hidden">
             <JobStatusBanner job={job}/>
@@ -56,7 +55,8 @@ useEffect(() => {
           <div className="flex flex-row">
             <StagesSideBar  job={job} />
             <CandidatesSideBar  job={job}/>
-            <DetailsSideBar job={job} type='resume' />
+            <DetailsSideBar job={job} type='overview' />
+            <iframe width="100%" src={src}></iframe>
            
             </div>
             </div>

@@ -39,12 +39,12 @@ console.log('fing title', title)
         <form onSubmit={submit}>
         <div className="flex p-4 flex-col  shadow-inner  ">
             
-            <span className="text-2xl font-bold">Job details</span>
-            <p className="text-gray-5OO"> Here is where you can edit the general information for this job. This includes things such as the job-type, hiring location, and if it is remote-friendly.</p>
+            <span className="text-2xl font-extrabold">Job details</span>
+            <p className="font-bold text-gray-500 "> Here is where you can edit the general information for this job. This includes things such as the job-type, hiring location, and if it is remote-friendly.</p>
             <span className="text-xl my-4 font-bold">Basic information</span>
             <div className="flex flex-row">
-                <span className="text-xs font-bold">Title</span>
-                <span className="text-xs ">(required)</span>
+                <span className="text-xs text-gray-500 first-letter:font-bold">Title</span>
+                <span className="text-xs text-gray-500 ">(required)</span>
                 
             </div>
             <input className="border-2 p-2 rounded-md border-gray-600"
@@ -52,26 +52,26 @@ console.log('fing title', title)
             onChange={(e) =>
                 setTitle({ title: e.currentTarget.value })}
                 ></input>
-            <span className="text-xs mt-4 font-bold">Category</span>
-            <span className="text-xs ">You can add, remove, and edit job categories in account settings.</span>
+            <span className="text-xs mt-4 text-gray-500 font-bold">Category</span>
+            <span className="text-xs text-gray-500 ">You can add, remove, and edit job categories in account settings.</span>
             <input className="border-2 p-2 rounded-md border-gray-600"
              defaultValue={category}
              onChange={(e) =>
                 setCategory({ category: e.currentTarget.value })}
                 ></input>
-            <span className="text-xs mt-4 font-bold">Employement type</span>
-            <input className="border-2 p-2 rounded-md border-gray-600"
+            <span className="text-xs mt-4 text-gray-500 font-bold">Employement type</span>
+            <input className="border-2 p-2  rounded-md border-gray-600"
              defaultValue={type}
              onChange={(e) =>
                 setType({ type: e.currentTarget.value })}
                 ></input>
             <span className="text-xl mt-4 font-bold">Hiring location</span>
-            <span className="text-xs mt-4 font-bold">Country</span>
+            <span className="text-xs mt-4 text-gray-500 font-bold">Country</span>
             <input className="border-2 p-2 rounded-md border-gray-600"
              defaultValue={country}
              onChange={(e) =>
                 setCountry({ country: e.currentTarget.value })}></input>
-            <span className="text-xs mt-4 font-bold">Location</span>
+            <span className="text-xs mt-4 text-gray-500 font-bold">Location</span>
             <input className="border-2 p-2 rounded-md border-gray-600"
              defaultValue={location}
              onChange={(e) =>
