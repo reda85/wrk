@@ -47,7 +47,6 @@ useEffect(() => {
     console.log('foooking job', job)
 
       const path='https://www.emploiquebec.gouv.qc.ca/fileadmin/fichiers/doc/Citoyens/Modele-CV-competences.docx'
-      const src= "https://docs.google.com/viewerng/viewer?url=" + path
       if(job) {return (
         <div className=" display-block overflow-hidden">
             <JobStatusBanner job={job}/>
@@ -55,8 +54,7 @@ useEffect(() => {
           <div className="flex flex-row">
             <StagesSideBar  job={job} />
             <CandidatesSideBar  job={job}/>
-            <DetailsSideBar job={job} type='overview' />
-            <iframe width="100%" src={src}></iframe>
+            <FileViewer fileType='docx' filePath={path} />
            
             </div>
             </div>
