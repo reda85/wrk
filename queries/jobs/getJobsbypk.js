@@ -5,7 +5,7 @@ jobs_by_pk(id: $jobId) {
     category
     description
     id
-    organizationId
+    organization_id
     stages {
       id
       jobId

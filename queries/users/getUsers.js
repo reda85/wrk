@@ -1,12 +1,18 @@
 import { gql } from "@apollo/client";
-export const findUsers = gql`
-  query FindUsers{
-    users {
+export const findUserByUid = gql`
+  query findUserByUid($uid : String!){
+    users(where: {uid: {_eq: $uid}}) {
       FirstName
       LastName
       email
       id
       organization_id
+      uid
+      organization {
+        name
+      }
     }
-  }
+  
+}
+    
 `

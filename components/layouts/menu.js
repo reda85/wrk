@@ -3,8 +3,16 @@ import { Fragment, useEffect, useRef, useState } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import Avatar from 'antd/lib/avatar/avatar'
 import { BellIcon } from '@heroicons/react/outline'
+import { useAuth } from '../../context/AuthUserContext'
+import { Router, useRouter } from 'next/router'
+
 
 export default function MenuLeft() {
+  const {user, logout} = useAuth()
+  const router = useRouter()
+
+  
+
   return (
     <div className='flex flex-row justify-end align-middle '>
       <BellIcon className='h-6 w-6 text-blue-700 mx-6 my-1' />
@@ -13,7 +21,7 @@ export default function MenuLeft() {
         <div>
           <Menu.Button className="flex flex-row items-center align-middle">
             <div className='h-8  w-8 text-lg justify-center items-center align-middle self-center font-bold text-white bg-blue-600 rounded-md'>
-mr
+{user?.FirstName[0] + user?.LastName[0]}
             </div>
             <ChevronDownIcon
               className="w-5 h-5 ml-1 -mr-1 text-blue-700 hover:text-blue-600"
@@ -50,13 +58,15 @@ mr
                         aria-hidden="true"
                       />
                     )}
-                    Edit
+                    Account settings
                   </button>
                 )}
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
                   <button
+                  onClick={() => {logout;
+                    router.push(`/login`)}}
                     className={`${
                       active ? 'bg-blue-500 text-white' : 'text-gray-900'
                     } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
@@ -72,81 +82,13 @@ mr
                         aria-hidden="true"
                       />
                     )}
-                    Duplicate
+                    Log out
                   </button>
                 )}
               </Menu.Item>
             </div>
-            <div className="px-1 py-1">
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${
-                      active ? 'bg-blue-500 text-white' : 'text-gray-900'
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
-                  >
-                    {active ? (
-                      <ArchiveActiveIcon
-                        className="w-5 h-5 mr-2"
-                        aria-hidden="true"
-                      />
-                    ) : (
-                      <ArchiveInactiveIcon
-                        className="w-5 h-5 mr-2"
-                        aria-hidden="true"
-                      />
-                    )}
-                    Archive
-                  </button>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${
-                      active ? 'bg-blue-500 text-white' : 'text-gray-900'
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
-                  >
-                    {active ? (
-                      <MoveActiveIcon
-                        className="w-5 h-5 mr-2"
-                        aria-hidden="true"
-                      />
-                    ) : (
-                      <MoveInactiveIcon
-                        className="w-5 h-5 mr-2"
-                        aria-hidden="true"
-                      />
-                    )}
-                    Move
-                  </button>
-                )}
-              </Menu.Item>
-            </div>
-            <div className="px-1 py-1">
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${
-                      active ? 'bg-blue-500 text-white' : 'text-gray-900'
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
-                  >
-                    {active ? (
-                      <DeleteActiveIcon
-                        className="w-5 h-5 mr-2 text-blue-400"
-                        aria-hidden="true"
-                      />
-                    ) : (
-                      <DeleteInactiveIcon
-                        className="w-5 h-5 mr-2 text-blue-400"
-                        aria-hidden="true"
-                      />
-                    )}
-                    Delete
-                  </button>
-                )}
-              </Menu.Item>
-            </div>
+           
+           
           </Menu.Items>
         </Transition>
       </Menu>

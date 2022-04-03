@@ -2,9 +2,10 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import CreateJobBanner from "../components/CreateJobBanner";
-import { findJobs } from "../queries/jobs/getJobs";
-import { useAuth } from '../context/AuthUserContext';
+import { findJobs } from "../../../queries/jobs/getJobs";
+
+
+
 
 export default function Jobs() {
 
@@ -14,6 +15,7 @@ export default function Jobs() {
 
     
   const router = useRouter();
+  const {organization} = router.query
 
   // Listen for changes on loading and authUser, redirect if needed
 
@@ -28,19 +30,24 @@ export default function Jobs() {
   return (
   <div>
       
-      <CreateJobBanner />
+     
     <div className="flex flex-col items-center ">
-       {jobs && !dataloading &&  <div className="w-3/4">You have {jobs.length} assignements</div> }
+       <div className="flex p-4 m-2 flex-row w-3/4 justify-between">
+           <h2 className="text-xl font-extrabold">{organization}</h2>
+           <button className="bg-gray-200 px-3 py-2 rounded-md">Subscribe</button>
+       </div>
        {dataloading && <p>Loading ...</p>}
-      {jobs.map(job => {
+       
+      {jobs?.map(job => {
           return(
-              <div key={job.id} className="flex p-4 m-2 flex-row w-3/4 justify-between rounded-md  border-gray-200 border cursor-pointer" onClick={() => router.push(`/jobs/${job.id}/setup/details`)}>
+              <div key={job.id} className="flex p-4 m-2 flex-row w-3/4 justify-between rounded-md  border-gray-200 border cursor-pointer" onClick={() => router.push(`/boards/${organization}/${job.id}`)}>
               <div className=" flex flex-col " >
               <div className="text-xl font-semibold"> {job.title} </div>
               <div className="flex flex-row">
-              <div className="p-1 text-xs text-white m-1 bg-gradient-to-r from-blue-500 to-fuchsia-500 rounded-lg border-gray-200 ">Not yet published</div>  
+             
                 {job.type && <div className="p-1 text-xs m-1 border rounded-lg border-gray-200 text-gray-700">{job.type}</div> }
                 {job.category && <div className="p-1 text-xs m-1 border rounded-lg border-gray-200 text-gray-700">{job.category}</div> }
+                {job.location && <div className="p-1 text-xs m-1 border rounded-lg border-gray-200 text-gray-700">{job.location}</div> }
                  <div></div> 
               </div>
               </div>

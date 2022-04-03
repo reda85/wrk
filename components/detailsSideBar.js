@@ -85,7 +85,7 @@ if(mycandidate ) {  return(
            <div className=" relative overflow-auto text-xl font-extrabold py-2 px-3 border-blue-100 bg-blue-50 rounded-md border-2">{mycandidate.FirstName + ' ' + mycandidate.LastName}</div>
             <div className="text-neutral-500 px-3 mt-1 mb-7 text-xs  ">Manually added</div>
             
-            {job.type == 'overview' && <div className="group flex flex-row cursor-pointer justify-between bg-blue-500 text-white p-2 rounded-md">
+            {job.type == 'overview' && <div className="group flex flex-row cursor-pointer justify-between bg-blue-500 text-white p-2 rounded-md" onClick={() => router.push(`/jobs/${jobId}/stages/${id}/applicants/${applicantId}/overview`)}>
              <div className="flex flex-row justify-start">  
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
@@ -100,7 +100,7 @@ Overview
 
 
 
-            {job.type != 'overview' && <div className="group text-gray-500 flex flex-row cursor-pointer justify-between hover:bg-blue-50 p-2 rounded-md">
+            {job.type != 'overview' && <div className="group text-gray-500 flex flex-row cursor-pointer justify-between hover:bg-blue-50 p-2 rounded-md" onClick={() => router.push(`/jobs/${jobId}/stages/${id}/applicants/${applicantId}/overview`)}>
              <div className="flex flex-row justify-start">  
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
@@ -114,7 +114,7 @@ Overview
             </div>}
 
 
-            <div className="group flex flex-row text-gray-500 cursor-pointer justify-between hover:bg-blue-50 p-2 rounded-md" onClick={() => router.push(`/jobs/${jobId}/stages/${id}/applicants/${applicantId}/resume`)}>
+            {job.type != 'resume' &&  <div className="group flex flex-row text-gray-500 cursor-pointer justify-between hover:bg-blue-50 p-2 rounded-md" onClick={() => router.push(`/jobs/${jobId}/stages/${id}/applicants/${applicantId}/resume`)}>
             <div className="flex flex-row justify-start"> 
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -124,7 +124,20 @@ Resume
 <svg xmlns="http://www.w3.org/2000/svg" className="text-white group-hover:stroke-black h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
 </svg>
+</div>}
+
+{job.type == 'resume' &&  <div className="group flex flex-row  cursor-pointer justify-between bg-blue-500 text-white  p-2 rounded-md" onClick={() => router.push(`/jobs/${jobId}/stages/${id}/applicants/${applicantId}/resume`)}>
+            <div className="flex flex-row justify-start"> 
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+</svg>
+Resume
 </div>
+<svg xmlns="http://www.w3.org/2000/svg" className="text-white group-hover:stroke-black h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+</svg>
+</div>}
+
 <div className="group flex flex-row cursor-pointer text-gray-500 justify-between hover:bg-blue-50 p-2 rounded-md">
 <div className="flex flex-row justify-start"> 
 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -136,6 +149,7 @@ Messages
   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
 </svg>
 </div>
+
 <div className="group flex flex-row text-gray-500 cursor-pointer justify-between hover:bg-blue-50 p-2 rounded-md">
 <div className="flex flex-row justify-start"> 
 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -147,7 +161,9 @@ Files
   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
 </svg>
 </div>
-<div className="group flex flex-row text-gray-500 cursor-pointer justify-between hover:bg-blue-50 p-2 rounded-md">
+
+
+{job.type != 'private' && <div className="group flex flex-row text-gray-500 cursor-pointer justify-between hover:bg-blue-50 p-2 rounded-md" onClick={() => router.push(`/jobs/${jobId}/stages/${id}/applicants/${applicantId}/privatenotes`)}>
 <div className="flex  text-gray-500 flex-row justify-start"> 
 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -158,7 +174,20 @@ Private notes
 <svg xmlns="http://www.w3.org/2000/svg" className="text-white group-hover:stroke-black h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
 </svg>
+</div>}
+
+{job.type == 'private' && <div className="group flex flex-row text-white cursor-pointer justify-between bg-blue-500 p-2 rounded-md" onClick={() => router.push(`/jobs/${jobId}/stages/${id}/applicants/${applicantId}/privatenotes`)}>
+<div className="flex  text-white flex-row justify-start"> 
+<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+  <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+</svg>
+Private notes
 </div>
+<svg xmlns="http://www.w3.org/2000/svg" className="text-white group-hover:stroke-black h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+</svg>
+</div>}
 
 
 <div className="font-bold pt-10 p-2"> Contact information</div>

@@ -46,7 +46,7 @@ useEffect(() => {
     }, [data]);
     console.log('foooking job', job)
 
-      const path='https://www.emploiquebec.gouv.qc.ca/fileadmin/fichiers/doc/Citoyens/Modele-CV-competences.docx'
+      const path='https://au.int/sites/default/files/announcements/38793-annc-auc_cv_template_french.pdf'
       if(job) {return (
         <div className=" display-block overflow-hidden">
             <JobStatusBanner job={job}/>
@@ -54,8 +54,11 @@ useEffect(() => {
           <div className="flex flex-row">
             <StagesSideBar  job={job} />
             <CandidatesSideBar  job={job}/>
-            <FileViewer fileType='docx' filePath={path} />
-           
+            <DetailsSideBar job={job} type='resume' />
+            <div className="w-full">
+              <h2 className="font-extrabold text-xl mt-4 ml-2">Resume</h2>
+            <iframe className={path.split('.').pop()} width="100%" height="600" frameBorder="0" src={`https://docs.google.com/gview?url=${path}&embedded=true`}></iframe>
+            </div>
             </div>
             </div>
         );}
