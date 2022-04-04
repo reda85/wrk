@@ -12,8 +12,8 @@ export default function Dropzone() {
       <input {...getInputProps()} />
       {
         isDragActive ?
-          <p>Drop the files here ...</p> :
-          <p>Drag 'n' drop some files here, or click to select files</p>
+          <p>Glissez les fichiers ici ...</p> :
+          <p>Glissez les fichiers ici, ou cliquez pour séléctionner des fichiers</p>
       }
     </div>
   )
