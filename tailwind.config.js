@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     extend: {fontFamily: {
       "Poppins": ['Poppins', ...defaultTheme.fontFamily.sans],
+      "Ubuntu": ['Ubuntu', ...defaultTheme.fontFamily.sans],
     },},
   },
   plugins: [],

@@ -8,14 +8,12 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useLazyQuery, useQuery } from "@apollo/client";
 import DetailsSideBar from "../../../../../../../components/detailsSideBar";
+import Dropzone from "../../../../../../../components/dropzone";
 import { ResumeViewer } from "../../../../../../../components/resume";
 //import DocViewer, { DocViewerRenderers } from "react-doc-viewer";
 import dynamic from "next/dynamic";
 
-const FileViewer = dynamic(import('react-file-viewer'), {	
-	ssr: false,
-	loading: () => <p>Loading ...</p>,
-	})
+
 
 
 export default function Resume() {
@@ -23,6 +21,7 @@ export default function Resume() {
   const { jobId, applicantId } = router.query;
   const [job, setJob] = useState(null)
   const [ getJob, { data } ] = useLazyQuery(findJobsbypk)
+  
   
   console.log("query resume", router.query)
  
@@ -57,6 +56,7 @@ useEffect(() => {
             <DetailsSideBar job={job} type='resume' />
             <div className="w-full">
               <h2 className="font-extrabold text-xl mt-4 ml-2">Resume</h2>
+             <Dropzone />
             <iframe className={path.split('.').pop()} width="100%" height="600" frameBorder="0" src={`https://docs.google.com/gview?url=${path}&embedded=true`}></iframe>
             </div>
             </div>

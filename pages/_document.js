@@ -9,11 +9,11 @@ class MyDocument extends Document {
         <Html>
           <Head>
             <link
-              href="https://fonts.googleapis.com/css2?family=Poppins"
+              href="https://fonts.googleapis.com/css2?family=Ubuntu"
               rel="stylesheet"
             />
           </Head>
-          <body className='font-Poppins text-medium'>
+          <body className='font-Ubuntu text-medium'>
             <Main />
             <NextScript />
           </body>
