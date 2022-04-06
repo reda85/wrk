@@ -9,8 +9,11 @@ import { useAuth } from '../context/AuthUserContext';
 export default function Jobs() {
 
     const [jobs, setJobs] = useState([])
-  
-    const { data, dataloading } = useQuery(findJobs)
+  const {user} = useAuth()
+    const { data, dataloading } = useQuery(findJobs, {
+        variables: {
+            organization_id : user.organization_id
+        }})
 
     
   const router = useRouter();

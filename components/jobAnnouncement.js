@@ -13,7 +13,7 @@ const [location, setLocation] = useState(null)
         <div className="flex flex-col mt-6 w-3/4 justify-center">
             <h1 className="font-extrabold text-3xl">{job.title}</h1>
            
-{parse(job.description)}
+{job.description && parse(job.description)}
           
 
             <form >

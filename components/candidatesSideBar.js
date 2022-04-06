@@ -36,6 +36,8 @@ export default function CandidatesSideBar( job) {
             
            
             setStages(job.job.stages);
+            
+            
         }
       //  console.log("job candidates", stages.filter(stage => stage.id == id)[0].name)
      
@@ -60,7 +62,7 @@ export default function CandidatesSideBar( job) {
     return(
         <div className="flex  flex-row ">
         <div className="flex flex-col p-2 flex-shrink w-60 shadow-inner divide-x-2 divide-y-2">
-        {loading && <LoadingOutlined className='h-10 w-10 text-blue-500' />}
+        {loading && <LoadingOutlined className='h-5 w-5 text-blue-500' />}
          {!loading && <div>   <div className="flex flex-row p-3  justify-between">
             {stages && stages.length > 0 && <span className="text-blue-700 font-extrabold text-lg ">{stages.filter(stage => stage.id == id)[0].name}</span> } 
             

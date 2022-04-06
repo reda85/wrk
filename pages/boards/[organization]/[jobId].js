@@ -42,12 +42,12 @@ export default function Private() {
 
   if(job) {return (
   <div className=" display-block flex flex-col justify-center items-center overflow-hidden">
-    <div className="flex p-4 m-2 flex-row w-3/4 justify-between">
+    <div className="flex  mt-4 flex-row w-3/4 justify-between">
            <h2 className="text-xl font-extrabold">{organization}</h2>
            <button className="bg-gray-200 px-3 py-2 rounded-md">Subscribe</button>
        </div>
-       <div className="flex p-4 m-2 font-extrabold flex-row w-3/4 " onClick={() => {router.push(`/boards/${organization}`)}}>
-<ArrowLeftIcon className="h-4 w-4 font-extrabold" />
+       <div className="flex mt-4   items-center text-lg font-extrabold flex-row w-3/4 " onClick={() => {router.push(`/boards/${organization}`)}}>
+<ArrowLeftIcon className="h-5 w-5 mr-1 hover:cursor-pointer hover:bg-gray-50 font-extrabold" />
 All jobs
        </div>
       <JobAnnouncement job={job} />

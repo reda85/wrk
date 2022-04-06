@@ -56,8 +56,8 @@ useEffect(() => {
             <DetailsSideBar job={job} type='resume' />
             <div className="w-full">
               <h2 className="font-extrabold text-xl mt-4 ml-2">Resume</h2>
-             <Dropzone />
-            <iframe className={path.split('.').pop()} width="100%" height="600" frameBorder="0" src={`https://docs.google.com/gview?url=${path}&embedded=true`}></iframe>
+             <Dropzone applicantId={applicantId} jobId={job.id} />
+            
             </div>
             </div>
             </div>

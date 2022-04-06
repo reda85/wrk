@@ -31,7 +31,7 @@ useEffect(() => {
   }
     return(
         <div className="flex flex-row">
-        <div className="flex flex-col flex-shrink w-48 p-2 shadow-inner  ">
+        <div className="flex flex-col font-extrabold flex-shrink w-48 p-2 shadow-inner  ">
         
             {stages && stages.map(stage => {
                if( (id != stage.id)) { return <button className="flex flex-row p-2 justify-between hover:bg-blue-50 cursor-pointer rounded-md" onClick={() => selectStage(stage, job)}>
@@ -74,10 +74,10 @@ useEffect(() => {
             }
             })}
             {job.setup ? <div className="flex mt-4 p-2 flex-row justify-start bg-blue-500 text-white cursor-pointer rounded-md" onClick={() => router.push(`/jobs/${job.job.id}/setup/details`)}>
-                <CogIcon className="stroke-white h-5 w-5 mx-2" />
+                <CogIcon className="stroke-white h-5 w-5 mr-2" />
                 Job setup
                 </div> :                 <div className="flex mt-4 p-2 flex-row justify-start cursor-pointer rounded-md" onClick={() => router.push(`/jobs/${job.job.id}/setup/details`)}>
-                <CogIcon className="h-5 w-5 mx-2" />
+                <CogIcon className="h-5 w-5 mr-2" />
                 Job setup
                 </div> }
         </div>

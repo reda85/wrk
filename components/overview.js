@@ -1,5 +1,5 @@
 import { useLazyQuery } from "@apollo/client";
-import { ArrowCircleDownIcon } from "@heroicons/react/outline";
+import { ArrowCircleDownIcon, ArrowDownIcon } from "@heroicons/react/outline";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { findEvents } from "../queries/events/getEvents";
@@ -58,8 +58,8 @@ export default function OverviewWindow( props) {
             <div key={event.id} className="mx-8">
             {event.event && <div key={event.id}>
             <div className="flex  flex-row items-center">
-            <div className="p-1 mr-2 bg-white rounded-sm ">
-            <ArrowCircleDownIcon className="h-4 w-4 text-gray-500  " />
+            <div className="p-1 mr-2 border-2 border-gray-200 bg-white rounded-md ">
+            <ArrowDownIcon className="h-4 w-4 text-gray-500  " />
             </div>
             <div className="text-xs">{event.event}</div>
             

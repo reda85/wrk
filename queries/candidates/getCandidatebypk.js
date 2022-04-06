@@ -9,6 +9,7 @@ export const findCandidateByPk = gql`
     Phone
     email
     id
+    resumeURL
   }
 }
     

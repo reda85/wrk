@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { findJobs } from "../../../queries/jobs/getJobs";
+import { findJobsByName } from "../../../queries/jobs/getJobsByName";
 
 
 
@@ -10,12 +11,16 @@ import { findJobs } from "../../../queries/jobs/getJobs";
 export default function Jobs() {
 
     const [jobs, setJobs] = useState([])
+    const router = useRouter()
+    const {organization} = router.query
   
-    const { data, dataloading } = useQuery(findJobs)
+    const { data, dataloading } = useQuery(findJobsByName, {
+        variables: {
+            organization : organization
+        }})
 
-    
-  const router = useRouter();
-  const {organization} = router.query
+
+  
 
   // Listen for changes on loading and authUser, redirect if needed
 
@@ -32,7 +37,7 @@ export default function Jobs() {
       
      
     <div className="flex flex-col items-center ">
-       <div className="flex p-4 m-2 flex-row w-3/4 justify-between">
+       <div className="flex mt-4 flex-row w-3/4 justify-between">
            <h2 className="text-xl font-extrabold">{organization}</h2>
            <button className="bg-gray-200 px-3 py-2 rounded-md">Subscribe</button>
        </div>

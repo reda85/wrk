@@ -9,11 +9,11 @@ class MyDocument extends Document {
         <Html>
           <Head>
             <link
-              href="https://fonts.googleapis.com/css2?family=Ubuntu"
+              href="https://fonts.googleapis.com/css2?family=Cairo"
               rel="stylesheet"
             />
           </Head>
-          <body className='font-Ubuntu text-medium'>
+          <body className='font-Cairo text-medium'>
             <Main />
             <NextScript />
           </body>
