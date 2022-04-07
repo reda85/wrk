@@ -30,12 +30,13 @@ export default function HiringStages(props) {
     
 
     return(
-        <div>
-<h2>Hiring stages</h2>
+        <div className="p-4">
+<span className="text-2xl font-extrabold">Hiring stages</span>
+<p className="font-bold text-gray-500 w-100"> Here is where you can manage the hiring stages for this Job. You can also control the order of the stages by dragging and dropping.</p>
 <DragDropContext onDragEnd={onDragEnd}>  
             <Droppable droppableId="droppable"  >  
                 {(provided, snapshot) => (  
-                    <div className="bg-gray-200"  
+                    <div className="bg-gray-200 w-60"  
                         {...provided.droppableProps}  
                         ref={provided.innerRef}  
                     >  

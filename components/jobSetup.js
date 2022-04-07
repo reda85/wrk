@@ -17,7 +17,7 @@ console.log("user ", user)
            {setup=='description' ? <div className="flex flex-row p-2 justify-between bg-blue-500 text-white cursor-pointer rounded-md" >Job description</div> : <div className="flex flex-row p-2 justify-between hover:bg-blue-50 cursor-pointer rounded-md" onClick={() => router.push(`/jobs/${job.id}/setup/description`)} >Job description</div>}
            {setup=='application' ? <div className="flex flex-row p-2 justify-between bg-blue-500 text-white cursor-pointer rounded-md" >Application form</div> : <div className="flex flex-row p-2 justify-between hover:bg-blue-50 cursor-pointer rounded-md" onClick={() => router.push(`/jobs/${job.id}/setup/application`)}>Application form</div>}
             <div className="flex flex-row p-2 justify-between hover:bg-blue-50 cursor-pointer rounded-md" >Templates</div>
-            <div className="flex flex-row p-2 justify-between hover:bg-blue-50 cursor-pointer rounded-md" >Hiring stages</div>
+            {setup=='hiring' ? <div className="flex flex-row p-2 justify-between bg-blue-500 text-white cursor-pointer rounded-md" >Hiring stages</div> : <div className="flex flex-row p-2 justify-between hover:bg-blue-50 cursor-pointer rounded-md" onClick={() => router.push(`/jobs/${job.id}/setup/hiringstages`)} >Hiring stages</div>}
             <div className="flex flex-row p-2 justify-between hover:bg-blue-50 cursor-pointer rounded-md" >Hiring team</div>
         </div>
         <div className="text-black text-sm mx-3 p-2 mt-6">
