@@ -23,8 +23,8 @@ console.log("user ", user)
         <div className="text-black text-sm mx-3 p-2 mt-6">
             <h2 className="font-bold ">Job post</h2>
 <div className="flex items-center text-xs text-slate-500 flex-row" >
-{user?.organization && <Link href={`/boards/${user.organization}/${job.id}`}>
-    <a className="flex items-center text-xs text-slate-500 flex-row">
+{user?.organization && <Link  href={`/boards/${user.organization}/${job.id} `}>
+    <a target='_blank' className="flex items-center text-xs text-slate-500 flex-row">
     <EyeIcon className="h-4 w-4 mr-1" />
     Preview job post
     </a>
