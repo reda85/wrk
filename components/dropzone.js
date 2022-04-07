@@ -93,7 +93,7 @@ const [getCandidate, { data, loading, error }] = useLazyQuery(findCandidateByPk)
 
   return (
       <div>
-          {candidate && <p>{candidate.resumeURL.split('.').pop().split('?')[0]}</p>}
+          
       {candidate && ! (candidate.resumeURL) && <div className='flex flex-col align-center p-20 border-2 m-4 text-gray-700 border-dashed rounded-md bg-gray-50' {...getRootProps()}>
       <input {...getInputProps()} />
       {

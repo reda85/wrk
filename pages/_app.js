@@ -19,11 +19,11 @@ function MyApp({ Component, pageProps }) {
   {(noAuthRequired.includes(router.pathname) || router.pathname.split('/')[1] == 'boards') ? (
         <Component {...pageProps} />
       ) : (
-        <ProtectedRoute>
+      //  <ProtectedRoute>
           <Layout>
           <Component {...pageProps} />
           </Layout>
-        </ProtectedRoute>
+      //  </ProtectedRoute>
       )}
  
   </AuthContextProvider> 
