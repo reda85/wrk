@@ -4,9 +4,9 @@ import { UserIcon } from "@heroicons/react/solid"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import { findCandidateByPk } from "../queries/candidates/getCandidatebypk"
-import { findCandidates } from "../queries/candidates/getCandidates"
+
 import { moveCandidateByPk, updateCandidateByPk } from "../queries/candidates/updateCandidate"
-import { findJobsbypk } from "../queries/jobs/getJobsbypk"
+
 
 
 export default function DetailsSideBar(job) {
@@ -14,11 +14,13 @@ export default function DetailsSideBar(job) {
   console.log('jonb', job)
 const router = useRouter()
 const {jobId, id, applicantId} = router.query
-const currentStageId = job.job.stages.findIndex(stage => stage.id == id )
+const currentStageId = job?.job?.stages.findIndex(stage => stage.id == id )
 console.log('currentStageId', currentStageId)
-const nextStage = job.job.stages[currentStageId + 1]
-
-const [mycandidate, setCandidate] = useState(null)
+const nextStage = job?.job?.stages[currentStageId + 1]
+const currentstage = job?.job?.stages.filter(stage => stage.id == id )
+console.log('currentstage', currentstage)
+const candid = currentstage[0].candidates.filter(candidate => candidate.id == applicantId)
+const [mycandidate, setCandidate] = useState(candid)
 const [updateCandidate, ] = useMutation(moveCandidateByPk);
 
 const [getCandidate, { data, loading, error }] = useLazyQuery(findCandidateByPk)
@@ -54,23 +56,10 @@ type:'move',
 jobId: jobId,
 event : 'Marouane Reda moved candidate to ' + nextStage.name
     },
-    refetchQueries: [
-      {
-        query: findJobsbypk,
-        variables: {
-          id : job.job.id
-        },
-        
-          query: findCandidateByPk,
-          variables: {
-            id : applicantId
-          },
-          query: findCandidates,
-          variables: {
-            id : id
-          },
-      },
-    ],
+    
+          
+      
+    
     onCompleted : (data) => {router.push(`/jobs/${job.job.id}/stages/${id}/applicants`)} ,
   })
   
