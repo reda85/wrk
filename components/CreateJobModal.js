@@ -1,10 +1,14 @@
 import { useMutation } from '@apollo/client';
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
+import { useAuth } from '../context/AuthUserContext';
 import createJob from '../queries/jobs/createJob';
 import createStages from '../queries/jobs/createStages';
 
+import { findJobs } from '../queries/jobs/getJobs';
+
 export default function CreateJobModal() {
+  const {user} = useAuth()
   let [isOpen, setIsOpen] = useState(false)
   const [title, setTitle] = useState('')
   const [insertJob, { data, loading, error }] = useMutation(createJob);
@@ -15,11 +19,11 @@ export default function CreateJobModal() {
 
   const submit = (e) => {
     e.preventDefault();
-  
+    closeModal()
     const newJob = {
       
      title : title.title,
-
+organization_id : user.organization_id
     } ;
 
     insertJob({
@@ -34,10 +38,20 @@ export default function CreateJobModal() {
          
           jobId: result.data.insert_jobs_one.id,
         },
-      })
-    })
+        refetchQueries: [
+          {
+            query: findJobs,
+            variables: {
+              organization_id : user.organization_id
+            },
+      }
+    ]})
+      
+    }
+    )
       .catch((error) => {
         console.log("errrror", error)
+        
       });
   };
 

@@ -9,6 +9,7 @@ import JobSetup from "../../../../components/jobSetup";
 import StagesSideBar from "../../../../components/stagesSidebar";
 import JobDetails from "../../../../components/jobdetails";
 import JobExplain from "../../../../components/jobExplain";
+import JobApplication from "../../../../components/application";
 //import DetailsSideBar from "../../../../../../../components/detailsSideBar";
 
 
@@ -48,7 +49,7 @@ export default function ApplicationForm() {
     <div className="flex flex-row">
       <StagesSideBar setup='details'  job={job} />
      <JobSetup setup='application' job={job} />
-    <JobDetails job={job}  />
+    <JobApplication job={job}  />
    
       </div>
       </div>}

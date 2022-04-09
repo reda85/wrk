@@ -33,7 +33,7 @@ export default function Stage() {
 
     useEffect(() => {
         if (data) {
-            console.log('data', data)
+            console.log('data applicants index', data)
             setJob(data.jobs_by_pk);
             let stage1 = data.jobs_by_pk.stages.filter(stage => stage.id == id)[0]
            console.log('stage1',stage1)
