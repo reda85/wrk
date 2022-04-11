@@ -13,6 +13,8 @@ const [firstName, setFirstName] =  useState(job.application_firstname)
 const [lastName, setLastName] = useState(job.application_lastname) 
 const [email, setEmail] =  useState(job.application_email) 
 const [phone, setPhone] =  useState(job.application_phone) 
+const [linkedin, setLinkedin] =  useState(job.application_linkedin) 
+const [github, setGithub] =  useState(job.application_github) 
 
 const [location, setLocation] = useState(job.application_location) 
 const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
@@ -29,6 +31,8 @@ const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
            category : job.category,
           application_location: location,
           application_phone: phone,
+          application_linkedin: linkedin,
+          application_github: github,
          id : jobId
           },
         })
@@ -67,6 +71,24 @@ const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
   
             <span className="text-xs mt-4 text-gray-500 font-bold">Location</span>
             <select onChange={(e) => setLocation(e.currentTarget.value)} className="border-2 p-2 rounded-md border-gray-600">
+      <option>Required</option>
+      <option>Hidden</option>
+          <option>Optional</option>
+      </select>
+
+      <span className="text-xl mt-4 font-bold">Links</span>
+  
+            <span className="text-xs mt-4 text-gray-500 font-bold">LinkedIn</span>
+            <select onChange={(e) => setLinkedin(e.currentTarget.value)} className="border-2 p-2 rounded-md border-gray-600">
+      <option>Required</option>
+      <option>Hidden</option>
+          <option>Optional</option>
+      </select>
+
+     
+  
+            <span className="text-xs mt-4 text-gray-500 font-bold">Github</span>
+            <select onChange={(e) => setGithub(e.currentTarget.value)} className="border-2 p-2 rounded-md border-gray-600">
       <option>Required</option>
       <option>Hidden</option>
           <option>Optional</option>

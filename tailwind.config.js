@@ -8,6 +8,7 @@ module.exports = {
     extend: {fontFamily: {
       "Poppins": ['Poppins', ...defaultTheme.fontFamily.sans],
       "Mukta": ['Mukta', ...defaultTheme.fontFamily.sans],
+      "Nunito": ['Nunito', ...defaultTheme.fontFamily.sans],
     },},
   },
   plugins: [
