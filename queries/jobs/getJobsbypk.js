@@ -19,6 +19,15 @@ jobs_by_pk(id: $jobId) {
     title
     type
     userId
+    application_email
+    application_firstname
+    application_github
+    application_lastname
+    application_linkedin
+    application_location
+    application_phone
+    application_resume
+    application_website
   }
 }
 `

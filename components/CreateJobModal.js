@@ -23,7 +23,16 @@ export default function CreateJobModal() {
     const newJob = {
       
      title : title.title,
-organization_id : user.organization_id
+organization_id : user.organization_id,
+application_firstname : 'Required',
+application_lastname : 'Required',
+application_email : 'Required',
+application_phone : 'Optional',
+application_location : 'Optional',
+application_linkedin : 'Hidden',
+application_github : 'Hidden',
+application_website : 'Hidden',
+application_resume : 'Required',
     } ;
 
     insertJob({

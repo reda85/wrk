@@ -11,7 +11,7 @@ export default function JobDetails(props) {
     const {jobId} = router.query
 const [title, setTitle] =  useState(job.title) 
 const [category, setCategory] = useState(job.category) 
-const [description, setDescription] =  useState(job.description) 
+
 const [type, setType] =  useState(job.type) 
 const [country, setCountry] =  useState(job.country) 
 const [location, setLocation] = useState(job.location) 

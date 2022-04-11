@@ -7,8 +7,11 @@ module.exports = {
   theme: {
     extend: {fontFamily: {
       "Poppins": ['Poppins', ...defaultTheme.fontFamily.sans],
-      "Cairo": ['Cairo', ...defaultTheme.fontFamily.sans],
+      "Mukta": ['Mukta', ...defaultTheme.fontFamily.sans],
     },},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+  ],
 }
