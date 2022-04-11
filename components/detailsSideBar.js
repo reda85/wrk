@@ -4,8 +4,10 @@ import { UserIcon } from "@heroicons/react/solid"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import { findCandidateByPk } from "../queries/candidates/getCandidatebypk"
+import { findCandidates } from "../queries/candidates/getCandidates"
 
 import { moveCandidateByPk, updateCandidateByPk } from "../queries/candidates/updateCandidate"
+import { findJobsbypk } from "../queries/jobs/getJobsbypk"
 
 
 
@@ -20,7 +22,7 @@ const nextStage = job?.job?.stages[currentStageId + 1]
 const currentstage = job?.job?.stages.filter(stage => stage.id == id )
 console.log('currentstage', currentstage)
 const candid = currentstage[0].candidates.filter(candidate => candidate.id == applicantId)
-const [mycandidate, setCandidate] = useState(candid)
+const [mycandidate, setCandidate] = useState(null)
 const [updateCandidate, ] = useMutation(moveCandidateByPk);
 
 const [getCandidate, { data, loading, error }] = useLazyQuery(findCandidateByPk)
@@ -31,6 +33,7 @@ const [getCandidate, { data, loading, error }] = useLazyQuery(findCandidateByPk)
         variables: {
           id : applicantId
         },
+        fetchPolicy: "network-only",
       })
     }
       }, [applicantId]);
@@ -57,14 +60,19 @@ jobId: jobId,
 event : 'Marouane Reda moved candidate to ' + nextStage.name
     },
     
-          
-      
+    refetchQueries : [{
+      query: findJobsbypk,
+      variables: {
+        jobId : jobId
+      },
+}]      
+    ,  
     
     onCompleted : (data) => {router.push(`/jobs/${job.job.id}/stages/${id}/applicants`)} ,
   })
   
 };
-if(mycandidate ) {  return(
+if(mycandidate  ) {  return(
   <div className="flex font-bold flex-row">
         <div className="flex flex-col p-2 flex-shrink w-60 divide-x overflow-y-auto max-h-screen shadow-inner">
           {loading && <LoadingOutlined className='h-10 w-10 text-blue-500' />}
@@ -212,5 +220,5 @@ className="inline-flex justify-center m-4 px-4 py-2 w-40 text-sm font-medium tex
        
     )
   }
-  else {return null}
+  else {return (<div />)}
 } 
