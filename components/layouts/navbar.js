@@ -26,43 +26,9 @@ return(
 
 <input 
 placeholder='Search candidates'
-onClick={openModal}
-type='search' className="w-1/2 mx-2 pl-3 pr-6 py-2 text-lg focus:outline-none focus:bg-white focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md bg-gray-200 border-gray-200 placeholder-gray-500" />
-<Transition appear show={isOpen} as={Fragment}>
-        <Dialog
-          as="div"
-          className="fixed inset-0 z-10 min-h-screen  overflow-y-auto"
-          onClose={closeModal}
-        >
-          <div className=" flex justify-end min-h-screen   text-center">
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
-             <Dialog.Overlay className="fixed inset-0 bg-black opacity-50" />
-            </Transition.Child>
 
-       
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
-            >
-              <div className="inline-block w-full max-w-md p-6 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-                </div>
-                </Transition.Child>
-                </div>
-                </Dialog>
-                </Transition>
+type='search' className="w-1/2 mx-2 pl-3 pr-6 py-2 text-lg focus:outline-none focus:bg-white focus:ring-indigo-500 focus:border-indigo-500 focus:bg-blend-darken sm:text-sm rounded-md bg-gray-200 border-gray-200 placeholder-gray-500" />
+
                 
 <MenuLeft />
 </div>

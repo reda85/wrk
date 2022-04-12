@@ -13,7 +13,7 @@ class MyDocument extends Document {
               rel="stylesheet"
             />
           </Head>
-          <body className='font-Nunito text-medium'>
+          <body className='font-Nunito text-medium antialiased'>
             <Main />
             <NextScript />
           </body>

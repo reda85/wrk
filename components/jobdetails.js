@@ -43,8 +43,8 @@ console.log('fing title', title)
             <p className="font-bold text-gray-500 "> Here is where you can edit the general information for this job. This includes things such as the job-type, hiring location, and if it is remote-friendly.</p>
             <span className="text-xl my-4 font-bold">Basic information</span>
             <div className="flex flex-row">
-                <span className="text-xs text-gray-500 first-letter:font-bold">Title</span>
-                <span className="text-xs text-gray-500 ">(required)</span>
+                <span className="text-xs text-gray-500 font-bold">Title(required)</span>
+                
                 
             </div>
             <input className="border-2 p-2 rounded-md border-gray-600"

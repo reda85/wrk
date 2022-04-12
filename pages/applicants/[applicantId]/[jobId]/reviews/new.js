@@ -177,7 +177,10 @@ export default function NewReview() {
          </div>
          
          <div className="text-lg mx-6 mt-6 font-extrabold"> Resume</div>
-         <iframe className={path.split('.').pop()} width="100%" height="600" frameBorder="0" src={`https://docs.google.com/gview?url=${path}&embedded=true`}></iframe>
+         <div className="p-4 rounded-md">
+         {candidate && candidate.resumeURL && candidate.resumeURL.split('.').pop().split('?')[0] == 'pdf' && <iframe className={candidate.resumeURL.split('.').pop().split('?')[0]} width="100%" height="600" frameBorder="0" src={`${candidate.resumeURL}&embedded=true`}></iframe> }
+    {candidate && candidate.resumeURL && candidate.resumeURL.split('.').pop().split('?')[0] != 'pdf' && <iframe className={candidate.resumeURL.split('.').pop().split('?')[0]} width="100%" height="600" frameBorder="0" src={`https://view.officeapps.live.com/op/embed.aspx?src=${candidate.resumeURL}&embedded=true`}></iframe> }
+     </div>
      </div>}
      </div>
      <div>

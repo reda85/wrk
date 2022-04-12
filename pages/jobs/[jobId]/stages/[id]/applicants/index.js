@@ -33,7 +33,16 @@ export default function Stage() {
     }
   }, [,jobId]);
 
-   
+    useEffect(() => {
+        if (data) {
+            console.log('data applicants index', data)
+            setJob(data.jobs_by_pk);
+            let stage1 = data.jobs_by_pk.stages.filter(stage => stage.id == id)[0]
+           console.log('stage1',stage1)
+          
+          }
+      }, [data,id]);
+      console.log('foooking job', job)
 
   return (
     <div>

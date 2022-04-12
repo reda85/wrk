@@ -74,7 +74,7 @@ export default function CandidatesSideBar( job) {
             {mycandidates && mycandidates.length >0 && mycandidates.map(candidate => {
               
               console.log('ghghgh')
-              if((applicantId !== candidate.id)) { return <div className=" text-gray-500 group flex flex-row cursor-pointer justify-between hover:bg-blue-50 p-2 rounded-md" onClick={() => selectCandidate(candidate)}>
+              if((applicantId !== candidate.id)) { return <div className=" font-bold text-gray-500 group flex flex-row cursor-pointer justify-between hover:bg-blue-50 p-2 rounded-md" onClick={() => selectCandidate(candidate)}>
                     <div className="flex flex-row justify-start">
                    <div> <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -86,7 +86,7 @@ export default function CandidatesSideBar( job) {
 </svg>
                    </div>}
                else {
-                if((applicantId === candidate.id)) {  return <div className="  group flex flex-row cursor-pointer items-end justify-between bg-blue-500 text-white p-2 rounded-md" onClick={() => selectCandidate(candidate)}>
+                if((applicantId === candidate.id)) {  return <div className=" font-bold group flex flex-row cursor-pointer items-end justify-between bg-blue-500 text-white p-2 rounded-md" onClick={() => selectCandidate(candidate)}>
                 <div className="flex  items-end flex-row justify-start">
                <div> <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
 <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
