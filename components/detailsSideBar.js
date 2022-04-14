@@ -75,14 +75,14 @@ event : 'Marouane Reda moved candidate to ' + nextStage.name
 if(mycandidate  ) {  return(
   <div className="flex font-bold flex-row">
         <div className="flex flex-col p-2 flex-shrink w-60 divide-x overflow-y-auto max-h-screen shadow-inner">
-          {loading && <LoadingOutlined className='h-10 w-10 text-blue-500' />}
+          {loading && <LoadingOutlined className='h-10 w-10 text-blue-700' />}
            {!loading && 
            <div className="">
              
            <div className=" relative overflow-auto text-xl font-extrabold py-2 px-3 border-blue-100 bg-blue-50 rounded-md border-2">{mycandidate.FirstName + ' ' + mycandidate.LastName}</div>
             <div className="text-neutral-500 px-3 mt-1 mb-7 text-xs  ">Manually added</div>
             
-            {job.type == 'overview' && <div className="group flex flex-row cursor-pointer justify-between bg-blue-500 text-white p-2 rounded-md" onClick={() => router.push(`/jobs/${jobId}/stages/${id}/applicants/${applicantId}/overview`)}>
+            {job.type == 'overview' && <div className="group flex flex-row cursor-pointer justify-between bg-blue-700 text-white p-2 rounded-md" onClick={() => router.push(`/jobs/${jobId}/stages/${id}/applicants/${applicantId}/overview`)}>
              <div className="flex flex-row justify-start">  
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
@@ -123,7 +123,7 @@ Resume
 </svg>
 </div>}
 
-{job.type == 'resume' &&  <div className="group flex flex-row  cursor-pointer justify-between bg-blue-500 text-white  p-2 rounded-md" onClick={() => router.push(`/jobs/${jobId}/stages/${id}/applicants/${applicantId}/resume`)}>
+{job.type == 'resume' &&  <div className="group flex flex-row  cursor-pointer justify-between bg-blue-700 text-white  p-2 rounded-md" onClick={() => router.push(`/jobs/${jobId}/stages/${id}/applicants/${applicantId}/resume`)}>
             <div className="flex flex-row justify-start"> 
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -173,7 +173,7 @@ Private notes
 </svg>
 </div>}
 
-{job.type == 'private' && <div className="group flex flex-row text-white cursor-pointer justify-between bg-blue-500 p-2 rounded-md" onClick={() => router.push(`/jobs/${jobId}/stages/${id}/applicants/${applicantId}/privatenotes`)}>
+{job.type == 'private' && <div className="group flex flex-row text-white cursor-pointer justify-between bg-blue-700 p-2 rounded-md" onClick={() => router.push(`/jobs/${jobId}/stages/${id}/applicants/${applicantId}/privatenotes`)}>
 <div className="flex  text-white flex-row justify-start"> 
 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -212,7 +212,7 @@ Private notes
 {nextStage && <button
 type="button"
 onClick={submit}
-className="inline-flex justify-center m-4 px-4 py-2 w-40 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+className="inline-flex justify-center m-4 px-4 py-2 w-40 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
 > Move to {nextStage.name}</button>}
 </div>}
         </div>

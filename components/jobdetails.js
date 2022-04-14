@@ -2,6 +2,8 @@ import { useMutation } from "@apollo/client"
 import { useRouter } from "next/router"
 import { useState } from "react"
 import { updateJobByPk } from "../queries/jobs/updateJob"
+import {toast} from 'react-hot-toast'
+import { LoadingOutlined } from "@ant-design/icons/lib/icons"
 
 export default function JobDetails(props) {
 
@@ -11,7 +13,7 @@ export default function JobDetails(props) {
     const {jobId} = router.query
 const [title, setTitle] =  useState(job.title) 
 const [category, setCategory] = useState(job.category) 
-
+const [description, setDescription] =  useState(job.description) 
 const [type, setType] =  useState(job.type) 
 const [country, setCountry] =  useState(job.country) 
 const [location, setLocation] = useState(job.location) 
@@ -25,13 +27,16 @@ console.log('fing title', title)
     
         updateJob({
           variables: {
-          // description : description,
+           description : description,
             title : title,
-         category : category.category,
-         type : type.type,
-         id : jobId
+         category : category,
+         type : type,
+         id : jobId,
+         country : country,
+         location: location
           },
-        })
+        }).then( data => toast.success('Job has been updated succesfully'))
+        .catch(error => toast.error(error))
           
       };
     
@@ -50,39 +55,39 @@ console.log('fing title', title)
             <input className="border-2 p-2 rounded-md border-gray-600"
             defaultValue={title}
             onChange={(e) =>
-                setTitle({ title: e.currentTarget.value })}
+                setTitle(e.currentTarget.value )}
                 ></input>
             <span className="text-xs mt-4 text-gray-500 font-bold">Category</span>
             <span className="text-xs text-gray-500 ">You can add, remove, and edit job categories in account settings.</span>
             <input className="border-2 p-2 rounded-md border-gray-600"
              defaultValue={category}
              onChange={(e) =>
-                setCategory({ category: e.currentTarget.value })}
+                setCategory( e.currentTarget.value )}
                 ></input>
             <span className="text-xs mt-4 text-gray-500 font-bold">Employement type</span>
             <input className="border-2 p-2  rounded-md border-gray-600"
              defaultValue={type}
              onChange={(e) =>
-                setType({ type: e.currentTarget.value })}
+                setType(e.currentTarget.value )}
                 ></input>
             <span className="text-xl mt-4 font-bold">Hiring location</span>
             <span className="text-xs mt-4 text-gray-500 font-bold">Country</span>
             <input className="border-2 p-2 rounded-md border-gray-600"
              defaultValue={country}
              onChange={(e) =>
-                setCountry({ country: e.currentTarget.value })}></input>
+                setCountry(e.currentTarget.value )}></input>
             <span className="text-xs mt-4 text-gray-500 font-bold">Location</span>
             <input className="border-2 p-2 rounded-md border-gray-600"
              defaultValue={location}
              onChange={(e) =>
-                setLocation({ title: e.currentTarget.value })}></input>
+                setLocation( e.currentTarget.value )}></input>
                 <div className=" flex flex-row mt-4">
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
                     onClick={submit}
                   >
-                    Create job
+                    {loading ? <LoadingOutlined /> : <span>Save changes</span>}
                   </button>
                 </div>
                

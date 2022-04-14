@@ -1,7 +1,9 @@
+import { LoadingOutlined } from "@ant-design/icons/lib/icons"
 import { useMutation } from "@apollo/client"
 import { useRouter } from "next/router"
 import { useState } from "react"
 import { updateJobByPk } from "../queries/jobs/updateJob"
+import {toast} from 'react-hot-toast'
 
 export default function JobApplication(props) {
 
@@ -36,7 +38,8 @@ const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
          id : jobId
           },
         })
-          
+        .then( data => toast.success('Job has been updated succesfully'))
+        .catch(error => toast.error(error))
       };
     
     return(
@@ -47,13 +50,13 @@ const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
             <p className="font-bold text-gray-500 "> Here is where you can edit which fields appear on this job application form and if they are required or not. You can further customize the application form by adding additional questions.</p>
             <span className="text-xl my-4 font-bold">Basic information</span>
             <div className="flex flex-row">
-                <span className="text-xs text-gray-500 first-letter:font-bold">Firstname</span>
+                <span className="text-xs text-gray-500 font-bold">Firstname</span>
                
                 
             </div>
      <input className="border-2 p-2 bg-gray-200 rounded-md border-gray-600" defaultValue="Always required" disabled/>
      <div className="flex flex-row">
-                <span className="text-xs text-gray-500 first-letter:font-bold">Lastname</span>
+                <span className="text-xs text-gray-500 font-bold">Lastname</span>
                
                 
             </div>
@@ -96,10 +99,10 @@ const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
                 <div className=" flex flex-row mt-4">
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
                     onClick={submit}
                   >
-                    Save changes
+                    {loading ? <LoadingOutlined /> : <span>Save changes</span>}
                   </button>
                 </div>
                

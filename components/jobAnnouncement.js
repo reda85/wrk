@@ -37,7 +37,7 @@ const submit = (e) => {
 
     return(
         <div className="flex flex-col mt-6 w-3/4 justify-center">
-            <h1 className="font-extrabold text-3xl">{job.title}</h1>
+            <h1 className="font-black text-blue-700 text-4xl">{job.title}</h1>
            
 {job.description && <article className="prose-sm ">{parse(job.description)}</article>}
           
@@ -140,7 +140,7 @@ const submit = (e) => {
                 <div className=" flex flex-row mt-4">
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
                     onClick={submit}
                   >
                     Submit application

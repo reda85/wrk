@@ -163,7 +163,7 @@ export default function NewReview() {
      <div className="w-1/2 shadow-inner">
         { candidate && 
         <div>
-            <div className="mx-6 mt-2 text-blue-800 text-3xl font-extrabold">
+            <div className="mx-6 mt-2 text-blue-700 text-3xl font-extrabold">
 {candidate.FirstName + ' ' + candidate.LastName}
          </div> 
          <div className="flex mt-3 mx-6 flex-row">
@@ -186,26 +186,26 @@ export default function NewReview() {
      <div>
      <div>
      <div className="w-full h-1/2 shadow-inner">
-     <QuillNoSSRWrapper className="h-full w-full border-2" modules={modules} value={value || ''} onChange={setValue} formats={formats} theme="snow" />
+     <QuillNoSSRWrapper placeholder="Write here your detailed review ..." className="h-full w-full border-2" modules={modules} value={value || ''} onChange={setValue} formats={formats} theme="snow" />
 
      
     
      </div>
      
 </div>
-<div className="inline-block relative w-full">
+<div className="inline-block my-4 relative w-full">
   <select className="block appearance-none w-full  bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
     
-    <option>Strong yes</option>
+    <option >Strong yes</option>
     <option>Weak yes</option>
     <option>Strong no</option>
     <option>Weak no</option>
   </select>
-  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-  </div>
+  
 </div>
-<button>Post your review</button>
+<button
+className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
+>Post your review</button>
 </div>
 
       </div>

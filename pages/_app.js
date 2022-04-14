@@ -7,6 +7,7 @@ import { ApolloProvider } from '@apollo/client';
 import { AuthContextProvider } from '../context/AuthUserContext'
 import ProtectedRoute from '../components/protectedRoute';
 import { useRouter } from 'next/router'
+import {Toaster} from 'react-hot-toast'
 
 const noAuthRequired = ['/',  '/login', '/signup']
 function MyApp({ Component, pageProps }) {
@@ -20,6 +21,7 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       ) : (
         <ProtectedRoute>
+         <Toaster />
           <Layout>
           <Component {...pageProps} />
           </Layout>

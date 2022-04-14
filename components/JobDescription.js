@@ -5,6 +5,9 @@ import { useMutation } from '@apollo/client';
 import { updateJobByPk } from '../queries/jobs/updateJob';
 import { findJobsbypk } from '../queries/jobs/getJobsbypk';
 import { useRouter } from 'next/router';
+import {toast} from 'react-hot-toast'
+import { LoadingOutlined } from '@ant-design/icons/lib/icons';
+
 const QuillNoSSRWrapper = dynamic(import('react-quill'), {	
 	ssr: false,
 	loading: () => <p>Loading ...</p>,
@@ -81,7 +84,8 @@ const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
                 id : job.id
             }}],
             onCompleted : (data) => {router.push(`/jobs/${job.id}/setup/description`)} ,
-        })
+        }).then( data => toast.success('Job has been updated succesfully'))
+        .catch(error => toast.error(error))
           
       };
     
@@ -97,10 +101,10 @@ const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
       </div>
        <button
        type="button"
-       className="inline-flex justify-center m-4 px-4 py-2 w-40 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+       className="inline-flex justify-center m-4 px-4 py-2 w-40 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
        onClick={submit}
      >
-       Save changes
+       {loading ? <LoadingOutlined /> : <span>Save changes</span>}
      </button>
      </form>
      </div>)

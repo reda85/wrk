@@ -44,7 +44,7 @@ export default function MenuLeft() {
                 {({ active }) => (
                   <button
                     className={`${
-                      active ? 'bg-blue-500 text-white' : 'text-gray-900'
+                      active ? 'bg-blue-700 text-white' : 'text-gray-900'
                     } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
                   >
                     {active ? (
@@ -68,7 +68,7 @@ export default function MenuLeft() {
                   onClick={() => {logout;
                     router.push(`/login`)}}
                     className={`${
-                      active ? 'bg-blue-500 text-white' : 'text-gray-900'
+                      active ? 'bg-blue-700 text-white' : 'text-gray-900'
                     } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
                   >
                     {active ? (

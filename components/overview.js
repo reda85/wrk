@@ -43,7 +43,7 @@ export default function OverviewWindow( props) {
       console.log('foooking events', events)
 
     return(
-        <div className=" shadow-inner w-screen relative ">
+        <div className=" shadow-inner font-bold w-screen relative ">
           {!loading && 
             <div>
             <div className="abolute h-16 flex p-4 flex-row items-center align-middle">
@@ -58,7 +58,7 @@ export default function OverviewWindow( props) {
             <div key={event.id} className="mx-8">
             {event.event && <div key={event.id}>
             <div className="flex  flex-row items-center">
-            <div className="p-1 mr-2 border-2 border-gray-200 bg-white rounded-md ">
+            <div className="p-1 mr-2 border-2 border-gray-300 bg-white rounded-md ">
             <ArrowDownIcon className="h-4 w-4 text-gray-500  " />
             </div>
             <div className="text-xs">{event.event}</div>
@@ -76,7 +76,7 @@ export default function OverviewWindow( props) {
         </div>)}
         
         </div>
-        <div className="mx-2 p-2 flex flex-row rounded-md border-2 border-gray-200">
+        <div className="mx-2 p-2 flex flex-row rounded-md border-2 border-gray-300">
 <button className="mx-4 p-2 font-semibold bg-blue-200 rounded-md"> <CreateCommentModal jobId={jobId} applicantId={applicantId} /> </button>
 <button 
 className="mx-4 p-2 font-semibold bg-blue-200 rounded-md"

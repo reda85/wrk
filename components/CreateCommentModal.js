@@ -48,7 +48,7 @@ export default function CreateCommentModal(props) {
         <button
           type="button"
           onClick={openModal}
-          
+          className='font-bold'
         >
           Add a comment
         </button>
@@ -116,7 +116,7 @@ export default function CreateCommentModal(props) {
                   <div className='mr-4'> 
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
                     onClick={submit}
                   >
                     Create comment
@@ -125,7 +125,7 @@ export default function CreateCommentModal(props) {
                 <div >
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-600 bg-blue-200 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-600 bg-blue-200 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
                     onClick={closeModal}
                   >
                     Cancel

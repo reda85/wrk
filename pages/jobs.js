@@ -41,7 +41,7 @@ export default function Jobs() {
               <div className=" flex flex-col " >
               <div className="text-xl font-semibold"> {job.title} </div>
               <div className="flex flex-row">
-              <div className="p-1 text-xs text-white m-1 bg-gradient-to-r from-blue-500 to-fuchsia-500 rounded-lg border-gray-200 ">Not yet published</div>  
+              <div className="p-1 text-xs text-white m-1 bg-gradient-to-r from-blue-700 to-fuchsia-500 rounded-lg border-gray-200 ">Not yet published</div>  
                 {job.type && <div className="p-1 text-xs m-1 border rounded-lg border-gray-200 text-gray-700">{job.type}</div> }
                 {job.category && <div className="p-1 text-xs m-1 border rounded-lg border-gray-200 text-gray-700">{job.category}</div> }
                  <div></div> 

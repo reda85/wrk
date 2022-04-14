@@ -9,6 +9,7 @@ import {
 import { auth } from '../lib/clientApp'
 import { findUserByUid } from '../queries/users/getUsers'
 import { useLazyQuery } from '@apollo/client'
+import nookies from "nookies";
 
 
 const AuthUserContext = createContext({})
@@ -25,7 +26,10 @@ export const AuthContextProvider = ({
   const [getUser, {data }] = useLazyQuery(findUserByUid)
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    if (typeof window !== "undefined") {
+      window.nookies = nookies;
+  }
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         getUser({
             variables: {
@@ -44,6 +48,9 @@ export const AuthContextProvider = ({
               })
       
     })
+    const token = await user.getIdToken();
+    nookies.destroy(null, "token");
+            nookies.set(null, "token", token, {});
       } else {
         setUser(null)
       }
@@ -65,6 +72,18 @@ export const AuthContextProvider = ({
     setUser(null)
     await signOut(auth)
   }
+
+  // force refresh the token every 10 minutes
+  useEffect(() => {
+    const handle = setInterval(async () => {
+        console.log(`refreshing token...`);
+        const user = firebaseClient.auth().currentUser;
+        if (user)
+            await user.getIdToken(true);
+    }, 10 * 60 * 1000);
+    return () => clearInterval(handle);
+}, []);
+
 
   return (
     <AuthUserContext.Provider value={{ user, login, signup, logout }}>
