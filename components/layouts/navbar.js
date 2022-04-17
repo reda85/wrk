@@ -129,8 +129,8 @@ type='text'
 className="w-full mx-2 pl-3 pr-6 py-2 text-lg outline-none focus:border-none bg-white rounded-b-none  bg-blend-darken sm:text-sm rounded-md " />
   <div className="absolute w-full mx-2 pt-2 text-sm border-t-2 rounded-b-md  text-black bg-white">
         <ul >
-          {results?.length > 0 && results?.map( (index,result)  => (
-            <li  key={index} >
+          {results?.length > 0 && results?.map( (result, index)  => (
+            <li key={index} >
               <Link href="/jobs/" as={`/jobs/`}>
                 <div className='flex flex-row py-2 justify-between align-center hover:cursor-pointer hover:bg-gray-100 rounded-md'>
                   <div className='flex flex-row justify-start'>
