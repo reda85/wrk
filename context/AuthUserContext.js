@@ -77,7 +77,7 @@ export const AuthContextProvider = ({
   useEffect(() => {
     const handle = setInterval(async () => {
         console.log(`refreshing token...`);
-        const user = firebaseClient.auth().currentUser;
+        const user = getAuth().currentUser;
         if (user)
             await user.getIdToken(true);
     }, 10 * 60 * 1000);

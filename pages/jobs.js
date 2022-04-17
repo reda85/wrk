@@ -32,7 +32,7 @@ export default function Jobs() {
   <div>
       
       <CreateJobBanner />
-    <div className="flex flex-col items-center ">
+    <div className="flex flex-col font-bold items-center ">
        {jobs && !dataloading &&  <div className="w-3/4">You have {jobs.length} assignements</div> }
        {dataloading && <p>Loading ...</p>}
       {jobs.map(job => {

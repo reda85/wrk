@@ -46,7 +46,7 @@ export default function Stage() {
 
   return (
     <div>
-  {job && <div>
+  {job && <div className="font-bold">
       <JobStatusBanner job={job}/>
       <JobTitleBanner  job={job} />
     <div className="flex flex-row">

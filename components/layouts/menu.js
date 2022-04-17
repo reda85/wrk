@@ -20,7 +20,7 @@ export default function MenuLeft() {
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button className="flex flex-row items-center align-middle">
-            <div className='h-8  w-8 text-lg justify-center items-center align-middle self-center font-bold text-white bg-blue-600 rounded-md'>
+            <div className='h-8 lowercase w-8 text-lg justify-center items-center align-middle self-center font-bold text-white bg-blue-600 rounded-md'>
 {user?.FirstName[0] + user?.LastName[0]}
             </div>
             <ChevronDownIcon
