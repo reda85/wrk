@@ -139,7 +139,7 @@ className="w-full mx-2 pl-3 pr-6 py-2 text-lg outline-none focus:border-none bg-
                   <span>&nbsp;</span>
                   <p className='m-0'> - as </p>
                   <span>&nbsp;</span>
-                  {result.stage.job.title}
+                  {result.stage?.job?.title}
                   </div>
                   <ChevronRightIcon className='h-4 w-4 mx-3' />
                   </div>
