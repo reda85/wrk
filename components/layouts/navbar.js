@@ -17,19 +17,17 @@ import {debounce} from 'lodash'
   function closeModal() {
     
 
-   setQuery(null)
+  // setQuery(null)
     setIsOpen(false)
    // setResults([])
     console.log('close', active, isOpen)
   }
-useEffect( () => {
-  if(!isOpen || query?.length == 0) {
-    setResults(null)
-  }
-},[isOpen, query])
+
 
   function openModal() {
+    setResults(null)
     setIsOpen(true)
+    
   }
 
     const searchRef = useRef(null)
@@ -62,7 +60,7 @@ useEffect( () => {
 
  const setNewSearch = debounce((query) => {
   onChange(query);
- }, 1000);
+ }, 500);
 
   
  
