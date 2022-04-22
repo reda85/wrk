@@ -11,14 +11,16 @@ import { findJobs } from "../queries/jobs/getJobs";
 import { findNotifications,  } from "../queries/jobs/getNotifs";
 
 export default function Mynotifications() {
-    const [notifications, setNotifications] = useState([])
+    const [notifications, setNotifications] = useState(null)
    
-    const [jobs, setJobs] = useState([])
+    const [jobs, setJobs] = useState(null)
     const {user} = useAuth()
       const { data, dataloading } = useQuery(findJobs, {
           variables: {
               organization_id : user.organization_id
           }})
+
+          
  
   
     const router = useRouter()
@@ -31,10 +33,15 @@ export default function Mynotifications() {
             
             console.log('datajob', data)
             setJobs(data.jobs);
-            setNotifications(data.jobs.map(job => job.notifications))
+            let nonnulljobs = data.jobs.filter(job => job.notifications.length > 0)
+            setNotifications(nonnulljobs.map(job => job.notifications))
         }
-     
+        console.log('datajob', data)
       }, [data]);
+
+      
+
+      
 
     
   
@@ -58,7 +65,7 @@ export default function Mynotifications() {
                         
 <BellIcon className='mx-2 h-5 w-5' />
                        All notifications</div>
-                       <div> {notifications.length}</div>
+                       <div> {notifications?.length}</div>
                         </div>
                         </div>
     {jobs && notifications && <SideBarNotifications jobs={jobs} notifications={notifications}  /> }

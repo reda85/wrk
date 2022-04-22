@@ -27,7 +27,7 @@ useEffect(() => {
     if (notifications) {
         
         console.log('mynotifications', notifications)
-        setNotifs(notifications);
+        setNotifs(...notifications);
     }
     
   }, [notifications]);
@@ -46,21 +46,21 @@ useEffect(() => {
                         
 <UserIcon className='mx-2 h-5 w-5' />
                         New candidates</div>
-                        {notifs.filter(notif => {notif[0]?.type == 'new_candidate'}).length}</button>
+                        {notifs?.filter(notif => notif.type === 'new_candidate').length}</button>
 
                         <button className="flex font-bold flex-row p-2 justify-between hover:bg-blue-50 cursor-pointer rounded-md" onClick={() => selectStage(stage, job)}>
                     <div className="flex flex-row justify-start">
                         
 <ChatIcon className='mx-2 h-5 w-5' />
                         New Meesages</div>
-                        {notifs?.filter(notif => notif.type == 'new_message').length}</button>
+                        {notifs?.filter(notif => notif?.type == 'new_message').length}</button>
 
                         <button className="flex font-bold flex-row p-2 justify-between hover:bg-blue-50 cursor-pointer rounded-md" onClick={() => selectStage(stage, job)}>
                     <div className="flex flex-row justify-start">
                         
 <PencilAltIcon className='mx-2 h-5 w-5' />
                         New Activity</div>
-                        {notifs?.filter(notif => notif.type == 'new_activity').length}</button>
+                        {notifs?.filter(notif => notif?.type == 'new_activity').length}</button>
 
                         <p className="font-extrabold mt-6 p-2 text-gray-500 ">Jobs</p>
             { myjobs.map((myjob, index) => {
