@@ -48,7 +48,7 @@ useEffect(() => {
       const path='https://au.int/sites/default/files/announcements/38793-annc-auc_cv_template_french.pdf'
       if(job) {return (
         <div className=" display-block overflow-hidden">
-            <JobStatusBanner job={job}/>
+           
             <JobTitleBanner  job={job} />
           <div className="flex flex-row">
             <StagesSideBar  job={job} />

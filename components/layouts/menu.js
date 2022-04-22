@@ -15,7 +15,10 @@ export default function MenuLeft() {
 
   return (
     <div className='flex flex-row justify-end align-middle '>
-      <BellIcon className='h-6 w-6 text-blue-700 mx-6 my-1' />
+      <div className='hover:cursor-pointer hover:bg-blue-100 mx-6 my-1 rounded-md '  onClick={() => {
+      router.push(`/notifications`)}}>
+      <BellIcon className='h-6 w-6 text-blue-700 ' />
+      </div>
     <div >
       <Menu as="div" className="relative inline-block text-left">
         <div>

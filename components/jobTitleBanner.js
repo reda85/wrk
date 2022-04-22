@@ -65,6 +65,7 @@ useEffect(() => {
 </svg>
 </div>
         <div className="mx-2  text-black">{title}</div>
+        <div className="p-2 ml-4  text-white text-xs bg-gradient-to-r from-blue-700 to-fuchsia-700 rounded-lg border-gray-200 ">Not yet published</div>
     </div>
     <div className="h-16 p-4 flex flex-Row text-xl font-bold align-middle ">
     <div className="hover:bg-blue-50 cursor-pointer rounded-md p-1" onClick={openModal}>

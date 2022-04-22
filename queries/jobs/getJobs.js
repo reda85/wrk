@@ -9,6 +9,16 @@ export const findJobs = gql`
         category
         type
         id
+        notifications {
+          body
+          id
+          jobId
+          organization_id
+          type
+          candidate {
+              FullName
+          }
+        }
       }
   }
 `

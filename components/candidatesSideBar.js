@@ -74,23 +74,19 @@ export default function CandidatesSideBar( job) {
             {mycandidates && mycandidates.length >0 && mycandidates.map(candidate => {
               
               console.log('ghghgh')
-              if((applicantId !== candidate.id)) { return <div className=" font-bold text-gray-500 group flex flex-row cursor-pointer justify-between hover:bg-blue-50 p-2 rounded-md" onClick={() => selectCandidate(candidate)}>
-                    <div className="flex flex-row justify-start">
-                   <div> <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-  <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-</svg> </div>
+              if((applicantId !== candidate.id)) { return <div className=" font-bold text-gray-500 group flex flex-row cursor-pointer items-center justify-between hover:bg-blue-50 p-2 rounded-md" onClick={() => selectCandidate(candidate)}>
+                    <div className="flex flex-row items-center justify-start">
+                   <div> <UserIcon className="w-5 h-5 mr-2 text-gray-500" /> </div>
                    <div> {candidate.FirstName} </div> <span>&nbsp;</span> <div> {candidate.LastName}</div>
                    </div>
-                   <svg xmlns="http://www.w3.org/2000/svg" className="text-white group-hover:stroke-black h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                   <svg xmlns="http://www.w3.org/2000/svg" className="text-white font-bold group-hover:stroke-black h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
 </svg>
                    </div>}
                else {
-                if((applicantId === candidate.id)) {  return <div className=" font-bold group flex flex-row cursor-pointer items-end justify-between bg-blue-700 text-white p-2 rounded-md" onClick={() => selectCandidate(candidate)}>
+                if((applicantId === candidate.id)) {  return <div className=" items-center font-bold group flex flex-row cursor-pointer  justify-between bg-blue-700 text-white p-2 rounded-md" onClick={() => selectCandidate(candidate)}>
                 <div className="flex  items-end flex-row justify-start">
-               <div> <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-<path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-</svg> </div>
+               <div> <UserIcon className="w-5 h-5 mr-2 text-white" /> </div>
                <div> {candidate.FirstName} </div> <span>&nbsp;</span> <div> {candidate.LastName}</div>
                </div>
                <svg xmlns="http://www.w3.org/2000/svg" className="  h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

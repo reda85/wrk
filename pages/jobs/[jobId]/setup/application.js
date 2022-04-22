@@ -44,7 +44,7 @@ export default function ApplicationForm() {
   return (
     <div>
   {job.id  && <div>
-      <JobStatusBanner job={job}/>
+      
       <JobTitleBanner  job={job} />
     <div className="flex flex-row">
       <StagesSideBar setup='details'  job={job} />

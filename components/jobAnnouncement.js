@@ -43,17 +43,17 @@ const submit = (e) => {
           
 
 <form onSubmit={submit}>
-                <div className='flex w-3/4 p-3 flex-col bg-gray-100 rounded-md'>
-                <span className="text-xl my-4 font-bold">Apply here</span>
+                <div className='flex w-3/4 p-3 mt-4 border-2 flex-col border-gray-300 rounded-md'>
+                <span className="text-xl my-6 font-bold">Apply here</span>
                 {(job.application_firstname == 'Required' || job.application_firstname == 'Optional') && 
-           <div className="flex flex-col">
+           <div className="flex mt-6 flex-col">
                <div className="flex flex-row">
-                <span className="text-xs font-bold">First Name</span>
+                <span className="text-xs font-bold">First Name </span>
                 <span className="text-xs ">(required)</span>
                 
             </div>
             
-            <input className="border-2 p-2 rounded-md border-gray-600"
+            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
             defaultValue={firstName}
             onChange={(e) =>
               setFirstName({ firstName: e.currentTarget.value })
@@ -68,7 +68,7 @@ const submit = (e) => {
                 <span className="text-xs ">(required)</span>
                 
             </div>
-            <input className="border-2 p-2 rounded-md border-gray-600"
+            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
             defaultValue={lastName}
             onChange={(e) =>
               setLastName({ lastName: e.currentTarget.value })
@@ -78,7 +78,7 @@ const submit = (e) => {
                 {(job.application_email == 'Required' || job.application_email == 'Optional') && 
            <div className="flex flex-col">
             <span className="text-xs mt-4 font-bold">Email address</span>
-            <input className="border-2 p-2 rounded-md border-gray-600"
+            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
              defaultValue={email}
             onChange={(e) =>
               setEmail({ email: e.currentTarget.value })
@@ -89,7 +89,7 @@ const submit = (e) => {
             {(job.application_phone == 'Required' || job.application_phone == 'Optional') && 
             <div className="flex flex-col">
             <span className="text-xs mt-4 font-bold">Phone number</span>
-            <input className="border-2 p-2 rounded-md border-gray-600"
+            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-5000"
             defaultValue={phone}
              onChange={(e) =>
               setPhone({ phone: e.currentTarget.value })
@@ -99,7 +99,7 @@ const submit = (e) => {
              {(job.application_location == 'Required' || job.application_location == 'Optional') && 
            <div className="flex flex-col">
             <span className="text-xs mt-4 font-bold">Location</span>
-            <input className="border-2 p-2 rounded-md border-gray-600"
+            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
             defaultValue={location}
             onChange={(e) =>
                         setLocation({ location: e.currentTarget.value })
@@ -109,7 +109,7 @@ const submit = (e) => {
             {(job.application_linkedin == 'Required' || job.application_linkedin == 'Optional') && 
            <div className="flex flex-col">
             <span className="text-xs mt-4 font-bold">Linkedin</span>
-            <input className="border-2 p-2 rounded-md border-gray-600"
+            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
             defaultValue={location}
             onChange={(e) =>
                         setLinkedin({ linkedin: e.currentTarget.value })
@@ -119,7 +119,7 @@ const submit = (e) => {
             {(job.application_github == 'Required' || job.application_github == 'Optional') && 
            <div className="flex flex-col">
             <span className="text-xs mt-4 font-bold">Github</span>
-            <input className="border-2 p-2 rounded-md border-gray-600"
+            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
             defaultValue={location}
             onChange={(e) =>
                         setGithub({ github: e.currentTarget.value })

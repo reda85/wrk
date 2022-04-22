@@ -6,9 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {fontFamily: {
-      "Poppins": ['Poppins', ...defaultTheme.fontFamily.sans],
-      "Mukta": ['Mukta', ...defaultTheme.fontFamily.sans],
-      "Nunito": ['Nunito', ...defaultTheme.fontFamily.sans],
+      "Lexend": ['Lexend', ...defaultTheme.fontFamily.sans],
+      "Raleway": ['Raleway', ...defaultTheme.fontFamily.sans],
+      "Lato": ['Lato', ...defaultTheme.fontFamily.sans],
     },},
   },
   plugins: [

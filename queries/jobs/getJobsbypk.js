@@ -1,12 +1,12 @@
 import { gql } from "@apollo/client";
 export const findJobsbypk = gql`
   query FindJobs($jobId : uuid!){
-jobs_by_pk(id: $jobId) {
+jobs_by_pk(id: $jobId, ) {
     category
     description
     id
     organization_id
-    stages {
+    stages (order_by: {position: asc_nulls_first}) {
       id
       jobId
       name

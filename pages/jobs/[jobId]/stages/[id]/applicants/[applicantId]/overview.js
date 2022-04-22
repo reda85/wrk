@@ -43,7 +43,7 @@ export default function Overview() {
 
   if(job) {return (
   <div className=" display-block overflow-hidden">
-      <JobStatusBanner job={job}/>
+      
       <JobTitleBanner  job={job} />
     <div className="flex flex-row">
       <StagesSideBar  job={job} />

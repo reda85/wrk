@@ -14,7 +14,7 @@ import HiringStages from "../../../../components/hiringstages";
 
 
 
-export default function Details() {
+export default function Hirestages() {
     const router = useRouter();
     const { jobId, id, applicantId } = router.query;
     const [job, setJob] = useState([])
@@ -44,7 +44,7 @@ export default function Details() {
   return (
     <div>
   {job.id  && <div>
-      <JobStatusBanner job={job}/>
+     
       <JobTitleBanner  job={job} />
     <div className="flex flex-row">
       <StagesSideBar setup='details'  job={job} />

@@ -48,36 +48,36 @@ console.log('fing title', title)
             <p className="font-bold text-gray-500 "> Here is where you can edit the general information for this job. This includes things such as the job-type, hiring location, and if it is remote-friendly.</p>
             <span className="text-xl my-4 font-bold">Basic information</span>
             <div className="flex flex-row">
-                <span className="text-xs text-gray-500 font-bold">Title(required)</span>
+                <span className="text-xs text-gray-500 font-bold">Title (required)</span>
                 
                 
             </div>
-            <input className="border-2 p-2 rounded-md border-gray-600"
+            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
             defaultValue={title}
             onChange={(e) =>
                 setTitle(e.currentTarget.value )}
                 ></input>
             <span className="text-xs mt-4 text-gray-500 font-bold">Category</span>
             <span className="text-xs text-gray-500 ">You can add, remove, and edit job categories in account settings.</span>
-            <input className="border-2 p-2 rounded-md border-gray-600"
+            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
              defaultValue={category}
              onChange={(e) =>
                 setCategory( e.currentTarget.value )}
                 ></input>
             <span className="text-xs mt-4 text-gray-500 font-bold">Employement type</span>
-            <input className="border-2 p-2  rounded-md border-gray-600"
+            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
              defaultValue={type}
              onChange={(e) =>
                 setType(e.currentTarget.value )}
                 ></input>
             <span className="text-xl mt-4 font-bold">Hiring location</span>
             <span className="text-xs mt-4 text-gray-500 font-bold">Country</span>
-            <input className="border-2 p-2 rounded-md border-gray-600"
+            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
              defaultValue={country}
              onChange={(e) =>
                 setCountry(e.currentTarget.value )}></input>
             <span className="text-xs mt-4 text-gray-500 font-bold">Location</span>
-            <input className="border-2 p-2 rounded-md border-gray-600"
+            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
              defaultValue={location}
              onChange={(e) =>
                 setLocation( e.currentTarget.value )}></input>
