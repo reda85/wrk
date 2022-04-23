@@ -25,6 +25,8 @@ export default function Notifications(props) {
         return(
             <div key={index} className="flex flex-row justify-between items-center border-2 p-2 rounded-md">
  <div className="flex flex-row justify-start">
+     {notif.read == 'yes'? <span className="h-4 w-4 text-gray-400">&#x25cf;</span> :
+     <span className="h-4 w-4 text-red-400">&#x25cf;</span>}
 <UserIcon className="h-5 w-5 mx-2" />
 <div className="flex flex-col">
     <div>
@@ -35,13 +37,32 @@ export default function Notifications(props) {
 </div>
 </div>
 </div>
-<button
+<div>
+
+{notif?.read == 'no' ? <button
           type="button"
           
-          className="px-4 py-2 my-2 text-sm font-medium text-black bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+          className="px-4 py-2 my-2 mx-2 text-sm font-medium text-black bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+        >
+          Mark as read
+        </button> :
+        <button
+        type="button"
+        
+        className="px-4 py-2 my-2 mx-2 text-sm font-medium text-black bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+      >
+        Mark as unread
+      </button>
+        
+        }
+        <button
+          type="button"
+          
+          className="px-4 py-2 my-2 text-sm font-medium text-red-400 bg-white border-red-400 border-2 hover:bg-red-400 hover:text-white rounded-md  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
         >
           Dismiss
-        </button>
+        </button> 
+            </div>
             </div>
 
         )})}

@@ -44,7 +44,7 @@ useEffect(() => {
 {stage.name != "Recrutement" && stage.name != "Réception"  && <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
 </svg>}
-                        {stage.name}</div>
+                        {stage.name.length > 15? stage.name.substr(0, 14) + '...' : stage.name}</div>
                         {stage.candidates.length}</button>}
                 else {
                     if((id == stage.id)) {return <div className="flex flex-row p-2 justify-between items-center bg-blue-700 text-white cursor-pointer rounded-md items-center" onClick={() => selectStage(stage, job)}>
@@ -56,7 +56,7 @@ useEffect(() => {
 {stage.name != "Recrutement" && stage.name != "Réception"  && <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
 </svg>}
-                        {stage.name}</div>
+{stage.name.length > 15? stage.name.substr(0, 14) + '...' : stage.name}</div>
                         {stage.candidates.length}</div>
                 }
                 else{
@@ -69,7 +69,7 @@ useEffect(() => {
 {stage.name != "Recrutement" && stage.name != "Réception"  && <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
 </svg>}
-                        {stage.name}</div>
+                        {stage.name.length > 15? stage.name.substr(0, 14) + '...' : stage.name}</div>
                         {stage.candidates.length}</div> 
                 }
             }

@@ -91,9 +91,11 @@ const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
     
     return(
         <div>
+          
             <form type='submit' onSubmit={submit}>
             <div>
-    <div className='flex h-3/4  flex-col  shadow-inner '>
+    <div className='flex h-3/4 p-4 flex-col  shadow-inner '>
+    <span className="text-2xl font-extrabold ">Job description</span>
         <QuillNoSSRWrapper className='h-full border-2' modules={modules} value={value || ''} onChange={setValue} formats={formats} theme="snow" />
         
         </div>

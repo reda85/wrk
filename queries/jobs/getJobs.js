@@ -9,10 +9,21 @@ export const findJobs = gql`
         category
         type
         id
+        stages {
+          candidates {
+              FullName
+          }
+          candidates_aggregate {
+            aggregate {
+              count
+            }
+          }
+        }
         notifications {
           body
           id
           jobId
+          read
           organization_id
           type
           candidate {

@@ -69,7 +69,7 @@ useEffect(() => {
                    <button className="flex font-bold flex-row p-2 justify-between hover:bg-blue-50 cursor-pointer rounded-md" onClick={() => selectStage(stage, job)}>
                    <div  className="flex flex-row justify-start">
                        
-<BriefcaseIcon className='mx-2 h-5 w-5' />
+<BriefcaseIcon className='truncate mx-2 h-5 w-5' />
                        {myjob.title}</div>
                        {myjob.notifications?.length}
                        </button>
