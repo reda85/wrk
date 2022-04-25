@@ -22,7 +22,7 @@ export default function CreateJobModal() {
     closeModal()
     const newJob = {
       
-     title : title.title,
+     title : title,
 organization_id : user.organization_id,
 application_firstname : 'Required',
 application_lastname : 'Required',
@@ -133,35 +133,34 @@ application_resume : 'Required',
                   </p>
                 </div>
 
-                <div>
-                    Job title
-                </div>
+                <span className="text-xs text-gray-500 font-bold">Job title</span>
 
                 <div>
-                    <input
-                     onChange={(e) =>
-                        setTitle({ title: e.currentTarget.value })
-                      }></input>
+                <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+            defaultValue={title}
+            onChange={(e) =>
+                setTitle(e.currentTarget.value )}
+                ></input>
                 </div>
 
-                <div className="mt-4">
+                <div className="flex flex-row mt-4">
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
+                    className=" justify-center px-4 py-2 text-sm mr-4 font-medium text-white bg-black border border-transparent rounded-md  focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
                     onClick={submit}
                   >
                     Create job
                   </button>
-                </div>
-                <div className="mt-4">
+               
+                
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
+                    className=" justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
                     onClick={closeModal}
                   >
                     Cancel
                   </button>
-                </div>
+                  </div>
                 </form>
               </div>
               

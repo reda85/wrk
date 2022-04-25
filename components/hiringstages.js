@@ -2,22 +2,25 @@ import { useMutation } from "@apollo/client";
 import { Dialog, Popover, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import { updatesatgeByPk } from "../queries/jobs/updateSatge";
+import { updatesatgeByPk, updatesatgeNameByPk } from "../queries/jobs/updateSatge";
 import { findJobsbypk } from "../queries/jobs/getJobsbypk"
 import { addstageByPk } from "../queries/jobs/addStage";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import EditStageModal from "./EditStageModal";
 
 export default function HiringStages(props) {
 
     const {job} = props
     const router = useRouter()
     const [isOpen, setIsOpen] = useState(false)
+    const [isOpenEdit, setIsOpenEdit] = useState(false)
     const [title, setTitle] = useState(null)
     const [stages, setStages] = useState(job.stages)
     const [mystages, setMystages] = useState(stages.slice(1,-1))
     const [selectedStage, setSelecteStage] = useState(null)
     const [updateStage, ] = useMutation(updatesatgeByPk);
+    const [updateStageName, ] = useMutation(updatesatgeNameByPk);
     const [addStage,data ] = useMutation(addstageByPk);
 
     useEffect(() => {
@@ -31,6 +34,12 @@ export default function HiringStages(props) {
     function closeModal() {
       setIsOpen(false)
     }
+
+    function closeEditModal() {
+      setIsOpenEdit(false)
+    }
+
+
   console.log("kridi", stages)
     function openModal() {
       setIsOpen(true)
@@ -102,6 +111,22 @@ export default function HiringStages(props) {
         })
       };
     
+      const submitEdit = (e) => {
+        e.preventDefault();
+        updateStageName({
+          variables: {
+           
+            name : title,
+       id : selectedStage.id
+          },
+          refetchQueries : [{
+            query: findJobsbypk,
+            variables: {
+              jobId : job.id
+            },
+      }]      
+        })
+        }
 
     return(
         <div className="p-4">
@@ -140,7 +165,7 @@ export default function HiringStages(props) {
 
       <Popover.Panel className="absolute z-10">
         <div className="flex  flex-col w-36 border-2 bg-white rounded-md border-gray-300">
-        <div className="hover:bg-gray-100 hover:cursor-pointer p-1 m-1">
+        <div className="hover:bg-gray-100 hover:cursor-pointer p-1 m-1" onClick={() => {console.log('hihihih');setIsOpenEdit(true); setSelecteStage(stage)}}>
                           <p className="text-sm font-medium text-gray-900">
                             Edit stage
           </p>
@@ -157,6 +182,7 @@ export default function HiringStages(props) {
       
       </Popover.Panel>
     </Popover>
+   
                     </div>
                    </div>  
                    </div>
@@ -262,7 +288,94 @@ export default function HiringStages(props) {
             </Transition.Child>
           </div>
         </Dialog>
-      </Transition>    
+      </Transition> 
+      <div> 
+      <Transition appear show={isOpenEdit} as={Fragment}>
+        <Dialog
+          as="div"
+          className="fixed inset-0 z-10 overflow-y-auto"
+          onClose={closeEditModal}
+        >
+          <div className="min-h-screen px-4 text-center">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+               <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
+            </Transition.Child>
+
+            {/* This element is to trick the browser into centering the modal contents. */}
+            <span
+              className="inline-block h-screen align-middle"
+              aria-hidden="true"
+            >
+              &#8203;
+            </span>
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
+            >
+              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+                <Dialog.Title
+                  as="h3"
+                  className="text-lg font-medium leading-6 text-gray-900"
+                >
+                  Edit modal
+                </Dialog.Title>
+                <form onSubmit={submit}>
+                <div className="mt-2">
+                  <p className="text-sm text-gray-500">
+                  Enter the name of the job position you are hiring for. Once created, you will be taken to its setup screen where you can configure it.
+                  </p>
+                </div>
+
+                <span className="text-xs text-gray-500 font-bold">Job title</span>
+
+                <div>
+                <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+            defaultValue={selectedStage?.name}
+            onChange={(e) =>
+                setTitle(e.currentTarget.value )}
+                ></input>
+                </div>
+
+                <div className="flex flex-row mt-4">
+                  <button
+                    type="button"
+                    className=" justify-center px-4 py-2 text-sm mr-4 font-medium text-white bg-black border border-transparent rounded-md  focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
+                    onClick={submitEdit}
+                  >
+                    Edit stage
+                  </button>
+               
+                
+                  <button
+                    type="button"
+                    className=" justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
+                    onClick={closeEditModal}
+                  >
+                    Cancel
+                  </button>
+                  </div>
+                </form>
+              </div>
+              
+            </Transition.Child>
+          </div>
+        </Dialog>
+      </Transition>
+      </div>
+       
         </div>
     )
 }

@@ -9,6 +9,7 @@ import { search } from '../../queries/candidates/search'
 import { useLazyQuery } from '@apollo/client'
 import Link from 'next/link'
 import {debounce} from 'lodash'
+import { useRouter } from 'next/router'
 
 
   export default function Navbar() {
@@ -31,6 +32,7 @@ import {debounce} from 'lodash'
   }
 
     const searchRef = useRef(null)
+    const router = useRouter()
   const [query, setQuery] = useState(null)
   const [active, setActive] = useState(false)
   const [results, setResults] = useState(null)
@@ -79,7 +81,7 @@ return(
     <div className="relative flex items-center justify-between h-12 gap-2 ">
       <div className="flex items-center lg:px-0 w-full ">
         <div className="flex items-center justify-between w-full">
-<span className='text-3xl font-bold  '>WorkBoard</span>
+<span className='text-3xl font-bold hover:cursor-pointer ' onClick={() => router.push('/jobs')}>WorkBoard</span>
 
 <div className="relative w-1/2" >
  {!isOpen && <input 
