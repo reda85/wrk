@@ -7,7 +7,7 @@ import { findJobsbypk } from "../queries/jobs/getJobsbypk"
 import { addstageByPk } from "../queries/jobs/addStage";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import EditStageModal from "./EditStageModal";
+
 
 export default function HiringStages(props) {
 
