@@ -2,7 +2,7 @@ import { useMutation } from "@apollo/client";
 import { Dialog, Popover, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import { updatesatgeByPk, updatesatgeNameByPk } from "../queries/jobs/updateSatge";
+import { deletesatgeNameByPk, updatesatgeByPk, updatesatgeNameByPk } from "../queries/jobs/updateSatge";
 import { findJobsbypk } from "../queries/jobs/getJobsbypk"
 import { addstageByPk } from "../queries/jobs/addStage";
 import { useRouter } from "next/router";
@@ -15,12 +15,14 @@ export default function HiringStages(props) {
     const router = useRouter()
     const [isOpen, setIsOpen] = useState(false)
     const [isOpenEdit, setIsOpenEdit] = useState(false)
+    const [isOpenDelete, setIsOpenDelete] = useState(false)
     const [title, setTitle] = useState(null)
     const [stages, setStages] = useState(job.stages)
     const [mystages, setMystages] = useState(stages.slice(1,-1))
     const [selectedStage, setSelecteStage] = useState(null)
     const [updateStage, ] = useMutation(updatesatgeByPk);
     const [updateStageName, ] = useMutation(updatesatgeNameByPk);
+    const [deleteStage, ] = useMutation(deletesatgeNameByPk);
     const [addStage,data ] = useMutation(addstageByPk);
 
     useEffect(() => {
@@ -38,11 +40,31 @@ export default function HiringStages(props) {
     function closeEditModal() {
       setIsOpenEdit(false)
     }
-
+    function closeDeleteModal() {
+      setIsOpenDelete(false)
+    }
 
   console.log("kridi", stages)
     function openModal() {
       setIsOpen(true)
+    }
+
+    const submitDelete = (e) => {
+      e.preventDefault();
+      deleteStage({
+        variables: {
+         
+         
+     id : selectedStage.id
+        },
+        refetchQueries : [{
+          query: findJobsbypk,
+          variables: {
+            jobId : job.id
+          },
+    }]      
+      })
+      closeDeleteModal()
     }
     const submit = (e) => {
       e.preventDefault();
@@ -171,7 +193,7 @@ export default function HiringStages(props) {
           </p>
           
           </div>
-          <div className="hover:bg-gray-100 hover:cursor-pointer p-1 m-1">
+          <div className="hover:bg-gray-100 hover:cursor-pointer p-1 m-1" onClick={() => {console.log('hihihih');setIsOpenDelete(true); setSelecteStage(stage)}}>
                           <p className="text-sm font-medium text-gray-900">
                             Delete stage
           </p>
@@ -375,6 +397,85 @@ export default function HiringStages(props) {
         </Dialog>
       </Transition>
       </div>
+      <div> 
+      <Transition appear show={isOpenDelete} as={Fragment}>
+        <Dialog
+          as="div"
+          className="fixed inset-0 z-10 overflow-y-auto"
+          onClose={closeDeleteModal}
+        >
+          <div className="min-h-screen px-4 text-center">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+               <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
+            </Transition.Child>
+
+            {/* This element is to trick the browser into centering the modal contents. */}
+            <span
+              className="inline-block h-screen align-middle"
+              aria-hidden="true"
+            >
+              &#8203;
+            </span>
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
+            >
+              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+                <Dialog.Title
+                  as="h3"
+                  className="text-lg font-medium leading-6 text-red-600"
+                >
+                 {selectedStage?.candidates.length >0 ? "This stage is not empty": "Delete the stage"} 
+                </Dialog.Title>
+                <form onSubmit={submitDelete}>
+                <div className="mt-2">
+                  <p className="text-sm text-gray-500">
+                  {selectedStage?.candidates.length >0 ? "You need to remove all candidates from the Interview stage before it can be deleted.": "Do you want to delete this stage permanently?"}
+                  </p>
+                </div>
+
+               
+                
+                <div className="flex flex-row mt-4">
+                {selectedStage?.candidates.length == 0 &&
+                  <button
+                    type="button"
+                    className=" justify-center px-4 py-2 text-sm mr-4 font-medium text-white bg-red-600 border border-transparent rounded-md  focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-700"
+                    onClick={submitDelete}
+                  >
+                    Yes, delete
+                  </button>
+}
+                
+                  <button
+                    type="button"
+                    className=" justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
+                    onClick={closeDeleteModal}
+                  >
+                   {selectedStage?.candidates.length >0 ? "Okay" : "Cancel" }
+                  </button>
+                  </div>
+                </form>
+              </div>
+              
+            </Transition.Child>
+            </div>
+            </Dialog>
+      </Transition>
+          </div>
        
         </div>
     )

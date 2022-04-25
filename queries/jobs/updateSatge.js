@@ -13,3 +13,10 @@ mutation updatesatgeByPk($id : Int!, $position : Int) {
         }
       }
     `
+    export const deletesatgeNameByPk = gql`
+    mutation deletesatgeNameByPk($id : Int!) {
+      delete_stages_by_pk(id: $id) {
+        id
+      }
+    }
+      `
