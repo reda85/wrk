@@ -17,6 +17,7 @@ const [email, setEmail] =  useState(job.application_email)
 const [phone, setPhone] =  useState(job.application_phone) 
 const [linkedin, setLinkedin] =  useState(job.application_linkedin) 
 const [github, setGithub] =  useState(job.application_github) 
+const [resume, setResume] =  useState(job.application_resume) 
 
 const [location, setLocation] = useState(job.application_location) 
 const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
@@ -35,6 +36,7 @@ const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
           application_phone: phone,
           application_linkedin: linkedin,
           application_github: github,
+          application_resume: resume,
          id : jobId
           },
         })
@@ -96,6 +98,13 @@ const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
       <option>Hidden</option>
           <option>Optional</option>
       </select>
+      <span className="text-xl mt-4 font-bold">Resume</span>
+                <span className="text-xs mt-4 text-gray-500 font-bold">Resume</span>
+            <select defaultValue={resume} onChange={(e) => setResume(e.currentTarget.value)} className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
+      <option>Required</option>
+      <option>Hidden</option>
+          <option>Optional</option>
+      </select>
                 <div className=" flex flex-row mt-4">
                   <button
                     type="button"
@@ -105,6 +114,7 @@ const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
                     {loading ? <LoadingOutlined /> : <span>Save changes</span>}
                   </button>
                 </div>
+
                
             
         </div>

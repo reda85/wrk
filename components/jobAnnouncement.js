@@ -2,6 +2,7 @@ import { useState } from "react"
 import parse from 'html-react-parser';
 import { useMutation } from "@apollo/client";
 import { addCandidate } from "../queries/candidates/createCandidate";
+import toast from "react-hot-toast";
 
 export default function JobAnnouncement(props) {
     const {job} = props
@@ -118,7 +119,9 @@ else{
         location: location,
         stageId : job.stages[0].id
       },
-    })
+    }).then( toast.success('Your application have been submitted successfully')).catch( e =>
+      toast.error(e)
+    )
   }  
   };
 
@@ -214,7 +217,7 @@ else{
             {job.application_linkedin == 'Required' && <span className="text-xs ">(required)</span>}
             </div>
             <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
-            defaultValue={location}
+            defaultValue={linkedin}
             onChange={(e) =>
                         setLinkedin(e.currentTarget.value )
                       }
@@ -256,7 +259,7 @@ else{
                     className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
                     onClick={submit}
                   >
-                    Submit application
+                    {loading ? 'Submitting...' : 'Submit application'}
                   </button>
                 </div>
               </div>

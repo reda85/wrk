@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { findEvents } from "../queries/events/getEvents";
 import Commentdiv from "./commentdiv";
 import CreateCommentModal from "./CreateCommentModal";
+import Reviewdiv from "./reviewdiv";
 
 export default function OverviewWindow( props) {
 
@@ -34,7 +35,7 @@ export default function OverviewWindow( props) {
             console.log('data', data)
             console.log('events', data.events)
             console.log('comments', data.comments)
-           const x = data.events.concat(data.comments)
+           const x = data.events.concat(data.comments).concat(data.reviews)
             setEvents(x);
 
             
@@ -73,7 +74,13 @@ export default function OverviewWindow( props) {
         <Commentdiv comment={event} />
         <div className=" ml-2 w-2 h-4 bg-blue-100 " />
         </div>}
+        {event.review && 
+        <div>
+        <Reviewdiv review={event} />
+        <div className=" ml-2 w-2 h-4 bg-blue-100 " />
+        </div>}
         </div>)}
+        
         
         </div>
         <div className="mx-2 p-2 flex flex-row rounded-md border-2 border-gray-300">

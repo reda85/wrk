@@ -16,6 +16,11 @@ export const findEvents = gql`
         id
         jobId
       }
+      reviews(where: {candidateId: {_eq: $applicantId}, jobId: {_eq: $jobId}}) {
+        evaluation
+        id
+        review
+      }
       
     }
 `

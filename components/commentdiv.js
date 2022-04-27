@@ -11,7 +11,7 @@ export default function Commentdiv( props) {
                <p className="mx-2 hover:cursor-pointer text-red-500">Delete</p>
            </div>
        </div>
-       <p className=" text-lg text-indigo-800">{props.comment.comment}</p>
+       <p className=" text-lg font-medium text-indigo-800">{props.comment.comment}</p>
                 </div>
     )
 }

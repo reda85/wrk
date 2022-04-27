@@ -22,7 +22,8 @@ function MyApp({ Component, pageProps }) {
       ) : (
        <ProtectedRoute> 
       <div>
-         <Toaster />
+         <Toaster  position="bottom-right"
+  reverseOrder={true}/>
           <Layout>
           <Component {...pageProps} />
           </Layout>
