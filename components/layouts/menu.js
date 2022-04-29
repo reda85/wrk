@@ -15,19 +15,19 @@ export default function MenuLeft() {
 
   return (
     <div className='flex flex-row justify-end align-middle '>
-      <div className='hover:cursor-pointer hover:bg-blue-100 mx-6 my-1 rounded-md '  onClick={() => {
+      <div className='hover:cursor-pointer hover:bg-indigo-100 mx-6 my-1 rounded-md '  onClick={() => {
       router.push(`/notifications`)}}>
-      <BellIcon className='h-6 w-6 text-blue-700 ' />
+      <BellIcon className='h-6 w-6 text-indigo-500 ' />
       </div>
     <div >
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button className="flex flex-row items-center align-middle">
-            <div className='h-8 lowercase w-8 text-lg justify-center items-center align-middle self-center font-bold text-white bg-blue-600 rounded-md'>
+            <div className='h-8 lowercase w-8 text-lg justify-center items-center align-middle self-center font-bold text-white bg-indigo-600 rounded-md'>
 {user?.FirstName[0] + user?.LastName[0]}
             </div>
             <ChevronDownIcon
-              className="w-5 h-5 ml-1 -mr-1 text-blue-700 hover:text-blue-600"
+              className="w-5 h-5 ml-1 -mr-1 text-indigo-500 hover:text-indigo-600"
               aria-hidden="true"
             />
           </Menu.Button>
@@ -47,7 +47,7 @@ export default function MenuLeft() {
                 {({ active }) => (
                   <button
                     className={`${
-                      active ? 'bg-blue-700 text-white' : 'text-gray-900'
+                      active ? 'bg-indigo-500 text-white' : 'text-gray-900'
                     } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
                   >
                     {active ? (
@@ -71,7 +71,7 @@ export default function MenuLeft() {
                   onClick={() => {logout;
                     router.push(`/login`)}}
                     className={`${
-                      active ? 'bg-blue-700 text-white' : 'text-gray-900'
+                      active ? 'bg-indigo-500 text-white' : 'text-gray-900'
                     } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
                   >
                     {active ? (

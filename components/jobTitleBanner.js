@@ -60,15 +60,15 @@ useEffect(() => {
     return(
       <div className="flex flex-row justify-between align-middle">
        <div className="h-16 p-4 flex flex-Row text-xl font-bold align-middle ">
-            <div className="hover:bg-blue-50 cursor-pointer rounded-md p-1" onClick={() => router.push(`/jobs`)}><svg xmlns="http://www.w3.org/2000/svg" className=" h-6 w-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <div className="hover:bg-indigo-50 cursor-pointer rounded-md p-1" onClick={() => router.push(`/jobs`)}><svg xmlns="http://www.w3.org/2000/svg" className=" h-6 w-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
 </svg>
 </div>
         <div className="mx-2  text-black">{title}</div>
-        <div className="p-2 ml-4  text-white text-xs bg-gradient-to-r from-blue-700 to-fuchsia-700 rounded-lg border-gray-200 ">Not yet published</div>
+        <div className="p-2 ml-4  text-white text-xs bg-gradient-to-r from-indigo-500 to-indigo-500 rounded-lg border-gray-200 ">Not yet published</div>
     </div>
     <div className="h-16 p-4 flex flex-Row text-xl font-bold align-middle ">
-    <div className="hover:bg-blue-50 cursor-pointer rounded-md p-1" onClick={openModal}>
+    <div className="hover:bg-indigo-50 cursor-pointer rounded-md p-1" onClick={openModal}>
     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
 </svg>
@@ -161,7 +161,7 @@ useEffect(() => {
                 <div className=" flex flex-row mt-4">
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
+                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-indigo-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500"
                    onClick={submit}
                   >
                     Create candidate

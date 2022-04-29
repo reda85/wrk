@@ -48,9 +48,7 @@ export default function OverviewWindow( props) {
           {!loading && 
             <div>
             <div className="abolute h-16 flex p-4 flex-row items-center align-middle">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-</svg>
+            
             <div className="  font-extrabold  text-xl ">Overview</div>
    </div>
         
@@ -66,27 +64,27 @@ export default function OverviewWindow( props) {
             
 
             </div>
-            <div className=" ml-2 w-2 h-4 bg-blue-100 ">
+            <div className=" ml-2 w-2 h-4 bg-indigo-100 ">
             </div>
         </div>}
         {event.comment && 
         <div>
         <Commentdiv comment={event} />
-        <div className=" ml-2 w-2 h-4 bg-blue-100 " />
+        <div className=" ml-2 w-2 h-4 bg-indigo-100 " />
         </div>}
         {event.review && 
         <div>
         <Reviewdiv review={event} />
-        <div className=" ml-2 w-2 h-4 bg-blue-100 " />
+        <div className=" ml-2 w-2 h-4 bg-indigo-100 " />
         </div>}
         </div>)}
         
         
         </div>
         <div className="mx-2 p-2 flex flex-row rounded-md border-2 border-gray-300">
-<button className="mx-4 p-2 font-semibold bg-blue-200 rounded-md"> <CreateCommentModal jobId={jobId} applicantId={applicantId} /> </button>
+<button className="mx-4 p-2 font-semibold bg-indigo-200 rounded-md"> <CreateCommentModal jobId={jobId} applicantId={applicantId} /> </button>
 <button 
-className="mx-4 p-2 font-semibold bg-blue-200 rounded-md"
+className="mx-4 p-2 font-semibold bg-indigo-200 rounded-md"
 onClick={() => {router.push(`/applicants/${applicantId}/${jobId}/reviews/new`)}}
 > Start a review </button>
         </div>

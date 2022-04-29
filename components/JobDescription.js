@@ -103,7 +103,7 @@ const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
       </div>
        <button
        type="button"
-       className="inline-flex justify-center m-4 px-4 py-2 w-40 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
+       className="inline-flex justify-center m-4 px-4 py-2 w-40 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-indigo-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500"
        onClick={submit}
      >
        {loading ? <LoadingOutlined /> : <span>Save changes</span>}

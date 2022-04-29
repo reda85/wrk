@@ -6,7 +6,7 @@ export default function Reviewdiv( props) {
         
        <div className="text-xs flex flex-row items-center align-middle justify-between ">
            < div className='flex flex-row '>
-           <div className=' lowercase p-1 mr-1 text-xs  justify-center items-center align-middle self-center font-bold text-white bg-blue-600 rounded-md'>
+           <div className=' lowercase p-1 mr-1 text-xs  justify-center items-center align-middle self-center font-bold text-white bg-indigo-600 rounded-md'>
 mr
             </div>
            <p>Marouane Reda left a review</p>

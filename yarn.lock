@@ -1462,9 +1462,9 @@
   dependencies:
     "file-uri-to-path" "1.0.0"
 
-"bluebird@~3.4.0":
+"indigobird@~3.4.0":
   "integrity" "sha1-9y12C+Cbf3bQjtj66Ysomo0F+rM="
-  "resolved" "https://registry.npmjs.org/bluebird/-/bluebird-3.4.7.tgz"
+  "resolved" "https://registry.npmjs.org/indigobird/-/indigobird-3.4.7.tgz"
   "version" "3.4.7"
 
 "bn.js@^4.0.0":
@@ -3826,7 +3826,7 @@
   "version" "1.3.6"
   dependencies:
     "argparse" "~1.0.3"
-    "bluebird" "~3.4.0"
+    "indigobird" "~3.4.0"
     "jszip" "~2.5.0"
     "lop" "~0.4.0"
     "path-is-absolute" "^1.0.0"

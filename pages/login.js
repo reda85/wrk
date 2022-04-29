@@ -43,10 +43,10 @@ export default function Login() {
      {error &&  <p className="text-red-500 text-xs italic">{error}</p>}
     </div>
     <div className="flex items-center justify-between">
-      <button onClick={onSubmit}className="bg-blue-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+      <button onClick={onSubmit}className="bg-indigo-500 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
         Sign In
       </button>
-      <a className="inline-block align-baseline font-bold text-sm text-blue-700 hover:text-blue-700" href="#">
+      <a className="inline-block align-baseline font-bold text-sm text-indigo-500 hover:text-indigo-500" href="#">
         Forgot Password?
       </a>
     </div>

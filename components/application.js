@@ -67,7 +67,7 @@ const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
            
             <input className="border-2 mt-2 p-2 bg-gray-200 rounded-md border-gray-600" defaultValue="Always required" disabled/>  
             <span className="text-xs mt-4 text-gray-500 font-bold">Phone</span>
-            <select defaultValue={phone} onChange={(e) => setPhone(e.currentTarget.value)} className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
+            <select defaultValue={phone} onChange={(e) => setPhone(e.currentTarget.value)} className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500">
       <option>Required</option>
       <option>Hidden</option>
           <option>Optional</option>
@@ -75,7 +75,7 @@ const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
             <span className="text-xl mt-4 font-bold">Hiring location</span>
   
             <span className="text-xs mt-4 text-gray-500 font-bold">Location</span>
-            <select defaultValue={location} onChange={(e) => setLocation(e.currentTarget.value)} className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
+            <select defaultValue={location} onChange={(e) => setLocation(e.currentTarget.value)} className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500">
       <option>Required</option>
       <option>Hidden</option>
           <option>Optional</option>
@@ -84,7 +84,7 @@ const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
       <span className="text-xl mt-4 font-bold">Links</span>
   
             <span className="text-xs mt-4 text-gray-500 font-bold">LinkedIn</span>
-            <select defaultValue={linkedin} onChange={(e) => setLinkedin(e.currentTarget.value)} className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
+            <select defaultValue={linkedin} onChange={(e) => setLinkedin(e.currentTarget.value)} className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500">
       <option>Required</option>
       <option>Hidden</option>
           <option>Optional</option>
@@ -93,14 +93,14 @@ const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
      
   
             <span className="text-xs mt-4 text-gray-500 font-bold">Github</span>
-            <select defaultValue={github} onChange={(e) => setGithub(e.currentTarget.value)} className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
+            <select defaultValue={github} onChange={(e) => setGithub(e.currentTarget.value)} className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500">
       <option>Required</option>
       <option>Hidden</option>
           <option>Optional</option>
       </select>
       <span className="text-xl mt-4 font-bold">Resume</span>
                 <span className="text-xs mt-4 text-gray-500 font-bold">Resume</span>
-            <select defaultValue={resume} onChange={(e) => setResume(e.currentTarget.value)} className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500">
+            <select defaultValue={resume} onChange={(e) => setResume(e.currentTarget.value)} className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500">
       <option>Required</option>
       <option>Hidden</option>
           <option>Optional</option>
@@ -108,7 +108,7 @@ const [updateJob, { data, loading, error }] = useMutation(updateJobByPk);
                 <div className=" flex flex-row mt-4">
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
+                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-indigo-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500"
                     onClick={submit}
                   >
                     {loading ? <LoadingOutlined /> : <span>Save changes</span>}

@@ -44,7 +44,7 @@ export default function Private() {
   <div className=" display-block flex flex-col justify-center items-center overflow-hidden">
     <div className="flex  mt-4 flex-row w-3/4 justify-between">
            <h2 className="text-xl font-extrabold">{organization}</h2>
-           <button className="bg-blue-700 font-extrabold text-white px-3 py-2 rounded-md">Subscribe</button>
+           <button className="bg-indigo-500 font-extrabold text-white px-3 py-2 rounded-md">Subscribe</button>
        </div>
        <div className="flex mt-4   items-center text-lg font-extrabold flex-row w-3/4 " onClick={() => {router.push(`/boards/${organization}`)}}>
 <ArrowLeftIcon className="h-5 w-5 mr-1 hover:cursor-pointer hover:bg-gray-50 font-extrabold" />

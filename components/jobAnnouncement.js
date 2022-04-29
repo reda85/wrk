@@ -127,7 +127,7 @@ else{
 
     return(
         <div className="flex flex-col mt-6 w-3/4 justify-center">
-            <h1 className="font-black text-blue-700 text-4xl">{job.title}</h1>
+            <h1 className="font-black text-indigo-500 text-4xl">{job.title}</h1>
            
 {job.description && <article className="prose-sm ">{parse(job.description)}</article>}
           
@@ -143,7 +143,7 @@ else{
                 
             </div>
             
-            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
             defaultValue={firstName}
             onChange={(e) =>
               setFirstName(e.currentTarget.value )
@@ -159,7 +159,7 @@ else{
                 {job.application_lastname == 'Required' && <span className="text-xs ">(required)</span>}
                 
             </div>
-            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
             defaultValue={lastName}
             onChange={(e) =>
               setLastName(e.currentTarget.value )
@@ -173,7 +173,7 @@ else{
             <span className="text-xs font-bold">Email address</span>
             {job.application_email == 'Required' && <span className="text-xs ">(required)</span>}
             </div>
-            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
              defaultValue={email}
             onChange={(e) =>
               setEmail( e.currentTarget.value )
@@ -188,7 +188,7 @@ else{
             <span className="text-xs font-bold">Phone number</span>
             {job.application_phone == 'Required' && <span className="text-xs ">(required)</span>}
             </div>
-            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-5000"
+            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-5000"
             defaultValue={phone}
              onChange={(e) =>
               setPhone(e.currentTarget.value )
@@ -202,7 +202,7 @@ else{
             <span className="text-xs  font-bold">Location</span>
             {job.application_location == 'Required' && <span className="text-xs ">(required)</span>}
            </div>
-            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
             defaultValue={location}
             onChange={(e) =>
                         setLocation( e.currentTarget.value )
@@ -216,7 +216,7 @@ else{
             <span className="text-xs  font-bold">Linkedin</span>
             {job.application_linkedin == 'Required' && <span className="text-xs ">(required)</span>}
             </div>
-            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
             defaultValue={linkedin}
             onChange={(e) =>
                         setLinkedin(e.currentTarget.value )
@@ -230,7 +230,7 @@ else{
             <span className="text-xs  font-bold">Github</span>
             {job.application_github == 'Required' && <span className="text-xs ">(required)</span>}
             </div>
-            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+            <input className="bg-gray-200 mt-2 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
             defaultValue={location}
             onChange={(e) =>
                         setGithub( e.currentTarget.value )
@@ -256,7 +256,7 @@ else{
                 <div className=" flex flex-row mt-4">
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-700"
+                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md hover:bg-indigo-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500"
                     onClick={submit}
                   >
                     {loading ? 'Submitting...' : 'Submit application'}

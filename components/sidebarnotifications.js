@@ -41,21 +41,21 @@ useEffect(() => {
 
 
 
-          <button className="flex font-bold flex-row p-2 justify-between hover:bg-blue-50 cursor-pointer rounded-md" onClick={() => selectStage(stage, job)}>
+          <button className="flex font-bold flex-row p-2 justify-between hover:bg-indigo-50 cursor-pointer rounded-md" onClick={() => selectStage(stage, job)}>
                     <div className="flex flex-row justify-start">
                         
 <UserIcon className='mx-2 h-5 w-5' />
                         New candidates</div>
                         {notifs?.filter(notif => notif.type === 'new_candidate').length}</button>
 
-                        <button className="flex font-bold flex-row p-2 justify-between hover:bg-blue-50 cursor-pointer rounded-md" onClick={() => selectStage(stage, job)}>
+                        <button className="flex font-bold flex-row p-2 justify-between hover:bg-indigo-50 cursor-pointer rounded-md" onClick={() => selectStage(stage, job)}>
                     <div className="flex flex-row justify-start">
                         
 <ChatIcon className='mx-2 h-5 w-5' />
                         New Meesages</div>
                         {notifs?.filter(notif => notif?.type == 'new_message').length}</button>
 
-                        <button className="flex font-bold flex-row p-2 justify-between hover:bg-blue-50 cursor-pointer rounded-md" onClick={() => selectStage(stage, job)}>
+                        <button className="flex font-bold flex-row p-2 justify-between hover:bg-indigo-50 cursor-pointer rounded-md" onClick={() => selectStage(stage, job)}>
                     <div className="flex flex-row justify-start">
                         
 <PencilAltIcon className='mx-2 h-5 w-5' />
@@ -66,7 +66,7 @@ useEffect(() => {
             { myjobs.map((myjob, index) => {
                 return(
                     <div key={index}>
-                   <button className="flex font-bold flex-row p-2 justify-between hover:bg-blue-50 cursor-pointer rounded-md" onClick={() => selectStage(stage, job)}>
+                   <button className="flex font-bold flex-row p-2 justify-between hover:bg-indigo-50 cursor-pointer rounded-md" onClick={() => selectStage(stage, job)}>
                    <div  className="flex flex-row justify-start">
                        
 <BriefcaseIcon className='truncate mx-2 h-5 w-5' />
